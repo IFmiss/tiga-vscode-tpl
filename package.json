@@ -1,0 +1,74 @@
+{
+  "name": "tiga-tpl",
+	"displayName": "tiga-tpl",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Other",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onCommand:tiga-tpl.createReactFC"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascriptreact",
+				"path": "./src/tpl/tpl-react.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/tpl/tpl-react.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./src/tpl/tpl-react-ts.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./src/tpl/tpl-react-ts.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "tiga-tpl.createReactFC",
+				"title": "新建ReactFC组件"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "tiga-tpl.createReactFC",
+					"alt": "tiga-tpl.createReactFC",
+					"group": "navigation",
+					"when": "explorerResourceIsFolder"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.51.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	}
+}

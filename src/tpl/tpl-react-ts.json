@@ -1,0 +1,56 @@
+{
+  "React FC Template": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react'",
+      "// import PropTypes from 'prop-types';",
+      "",
+      "export interface $1Props {}",
+      "",
+      "const $1: React.FC<$1Props> = ($3) => {",
+      "\treturn (",
+      "\t\t<div>this is $1</div>",
+      "\t);",
+      "}",
+      "",
+      "//Home.propTypes = {",
+      "//\tprops: PropTypes.string",
+      "//};",
+      "",
+      "export default $1;",
+      ""
+    ],
+    "description": "create react function component"
+  },
+
+  "React Class Component Template": {
+    "prefix": "rcc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface $1Props {};",
+      "interface $1State {};",
+      "",
+      "class $1 extends React.Component<$1Props, $1State> {",
+      "\tconstructor(props: Readonly<$1Props>) {",
+      "\t\tsuper(props);",
+      "\t\tthis.state = {};",
+      "\t};",
+      "",
+      "\tcomponentDidMount () {",
+      "\t\t// monunted",
+      "\t};",
+      "",
+      "\trender () {",
+      "\t\treturn (",
+      "\t\t\t<div>this is $1</div>",
+      "\t\t)",
+      "\t}",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ],
+    "description": "create react class component"
+  }
+}
