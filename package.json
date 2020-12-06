@@ -18,19 +18,19 @@
 		"snippets": [
 			{
 				"language": "javascriptreact",
-				"path": "./src/tpl/tpl-react.json"
+				"path": "./src/snippets/tpl-react.json"
 			},
 			{
 				"language": "javascript",
-				"path": "./src/tpl/tpl-react.json"
+				"path": "./src/snippets/tpl-react.json"
 			},
 			{
 				"language": "typescriptreact",
-				"path": "./src/tpl/tpl-react-ts.json"
+				"path": "./src/snippets/tpl-react-ts.json"
 			},
 			{
 				"language": "typescript",
-				"path": "./src/tpl/tpl-react-ts.json"
+				"path": "./src/snippets/tpl-react-ts.json"
 			}
 		],
 		"commands": [

@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import runR from '../../template/react/rfc-ts/r';
 
 const createRFC = (context: vscode.ExtensionContext) => {
   return vscode.commands.registerCommand('tiga-tpl.createReactFC', async (parmas) => {
@@ -19,7 +20,8 @@ const createRFC = (context: vscode.ExtensionContext) => {
 
 		const fullPath = `${fPath}/${data}`;
 
-		vscode.window.showInformationMessage(fullPath);
+    vscode.window.showInformationMessage(fullPath);
+    runR();
 	});
 };
 
