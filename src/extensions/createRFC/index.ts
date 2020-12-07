@@ -15,13 +15,14 @@ const createRFC = (context: vscode.ExtensionContext) => {
 			placeHolder: '组件名'
 		};
 		
-		const data = await vscode.window.showInputBox(options);
-		if (!data) {return;}
+		const name = await vscode.window.showInputBox(options);
+		if (!name) {return;}
 
-		const fullPath = `${fPath}/${data}`;
-
-    vscode.window.showInformationMessage(fullPath);
-    runR();
+    runR({
+      path: fPath,
+      name,
+      type: 'rfc'
+    });
 	});
 };
 
