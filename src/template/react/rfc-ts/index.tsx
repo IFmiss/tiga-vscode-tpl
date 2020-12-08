@@ -1,4 +1,4 @@
-export default function compileCode (options: RenderTemplateOptions) {
+export default function compileCode(options: RenderTemplateOptions) {
   const { name } = options;
   return `
     import React from 'react';

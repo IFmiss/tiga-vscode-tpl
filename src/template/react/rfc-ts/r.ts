@@ -1,20 +1,20 @@
 import * as vscode from 'vscode';
-import {
-  createFolder,
-  renderContextFile
-} from '../../render';
+import compileCode from './../rfc-ts/index';
+import mkdir from './../../../utils/mkdir';
+import renderContextFile from './../../../utils/renderContextFile';
 
-export default function runR (options: RenderTemplateOptions) {
+export default async function runR (options: RenderTemplateOptions) {
   const {
     name,
     path
   } = options;
 
-  const res = renderContextFile({
-    name: 'H'
+  mkdir(path, name);
+
+  const res = renderContextFile(compileCode, {
+    name
   });
 
-  createFolder(`${path}/${name}`);
   vscode.window.showInformationMessage(res);
   console.info(res);
-}
+};
