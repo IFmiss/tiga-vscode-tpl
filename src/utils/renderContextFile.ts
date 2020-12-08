@@ -1,5 +1,5 @@
 import * as vm from 'vm';
-export default function renderContextFile<T> (compileCode: string, options: T) {
+export default function renderContextFile<T> (compileCode: Function, options: T) {
   let c;
   try {
     const parsingContext = vm.createContext({

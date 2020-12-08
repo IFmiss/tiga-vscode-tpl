@@ -1,7 +1,6 @@
 type TemplateType = 
   | 'rfc-ts'
-  | 'rfc-js'
-  |  'rcc';
+  | 'rfc-js';
 
 interface RenderTemplateOptions {
   // 项目名称

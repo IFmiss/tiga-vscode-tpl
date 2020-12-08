@@ -1,8 +1,6 @@
 import * as vscode from 'vscode';
-import { TMPLATE_DIR_MAP } from '../constance';
 import mkdir from './mkdir';
 import * as fsExtra from 'fs-extra';
-import * as path from 'path';
 import getTplPath from './getTplPath';
 
 export default async function createTplFolder(parmas: any, type: TemplateType) {
