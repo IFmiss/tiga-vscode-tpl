@@ -1,0 +1,19 @@
+import * as vm from 'vm';
+export default function renderContextFile<T> (compileCode: string, options: T) {
+  let c;
+  try {
+    const parsingContext = vm.createContext({
+      options,
+      compile: compileCode
+    });
+    
+    const codeFn = "return compile(options)";
+    const fn = vm.compileFunction(codeFn, [], {
+      parsingContext
+    });
+    c = fn();
+  } catch (e) {
+    console.log('e', JSON.stringify(e));
+  }
+  return c;
+}
