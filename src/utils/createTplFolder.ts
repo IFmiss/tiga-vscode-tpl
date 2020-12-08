@@ -21,9 +21,9 @@ export default async function createTplFolder(parmas: any, type: TemplateType) {
 
   await mkdir(fPath, name);
 
-  const tplPath = getTplPath(type);
-  console.log('tplPath', tplPath);
-  const res = fsExtra.readdirSync(tplPath);
-
-  console.log('res', res);
+  return Promise.resolve({
+    path: fPath,
+    name: name,
+    type
+  });
 };
