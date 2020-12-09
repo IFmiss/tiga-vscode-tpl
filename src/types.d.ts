@@ -16,9 +16,9 @@ interface RenderTemplateOptions {
   useTypeScript: boolean;
 
   // css预处理 less scss css;
-  style: 'less' | 'css' | 'scss';
+  style?: 'less' | 'css' | 'scss';
 
   // 是否使用cssmodules；
-  cssModules: boolean;
+  cssModules?: boolean;
 }
 
