@@ -9,6 +9,7 @@ export default function renderRFC(options: RenderTemplateOptions) {
     path,
     useTypeScript: ts
   } = options;
+  console.info('options', options);
 
   const reactExt = ts ? 'tsx' : 'jsx';
 

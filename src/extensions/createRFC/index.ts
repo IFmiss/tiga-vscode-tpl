@@ -4,8 +4,6 @@ import renderRFC from './../../exec/renderRFC';
 
 const createRFC = (context: vscode.ExtensionContext) => {
   return vscode.commands.registerCommand('tiga-tpl.createReactFC', async (parmas) => {
-    vscode.window.showQuickPick(['red', 'black']);
-    return
     try {
       const data = await createTplFolder(parmas, {
         useTypeScript: true,
