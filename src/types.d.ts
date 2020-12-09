@@ -1,6 +1,6 @@
 type TemplateType = 
-  | 'rfc-ts'
-  | 'rfc-js';
+  | 'rfc'
+  | 'rcc';
 
 interface RenderTemplateOptions {
   // 项目名称
@@ -11,5 +11,14 @@ interface RenderTemplateOptions {
 
   // 创建的类型
   type: TemplateType;
+
+  // 是否是typescript
+  useTypeScript: boolean;
+
+  // css预处理 less scss css;
+  style: 'less' | 'css' | 'scss';
+
+  // 是否使用cssmodules；
+  cssModules: boolean;
 }
 

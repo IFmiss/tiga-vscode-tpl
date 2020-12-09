@@ -6,7 +6,7 @@ export default function renderContextFile<T> (compileCode: Function, options: T)
       options,
       compile: compileCode
     });
-    
+    console.info('start');
     const codeFn = "return compile(options)";
     const fn = vm.compileFunction(codeFn, [], {
       parsingContext

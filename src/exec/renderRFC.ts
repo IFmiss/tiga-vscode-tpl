@@ -1,10 +1,28 @@
 import renderContextFile from "../utils/renderContextFile";
-import compileIndex from './../../template/rfc/index';
+import compileIndex from '../template/rfc/index';
+import compileStyle from '../template/rfc/style';
+import * as fsExtra from 'fs-extra';
 
-export default function renderRFC (options: any) {
-  console.info('options', options);
+export default function renderRFC(options: RenderTemplateOptions) {
+  const {
+    name,
+    path,
+    useTypeScript: ts
+  } = options;
+
+  const reactExt = ts ? 'tsx' : 'jsx';
+
   const TPL_MAP = {
-    'index.tsx': renderContextFile(compileIndex, options)
+    [`${name}/index.${reactExt}`]: renderContextFile(compileIndex, options),
+    [`${name}/${name.toLocaleLowerCase()}.less`]: renderContextFile(compileStyle, options),
   };
-  console.info(JSON.stringify(TPL_MAP));
+
+  for (let [k, v] of Object.entries(TPL_MAP)) {
+    try {
+      fsExtra.writeFileSync(`${path}/${k}`, v);
+    } catch (e) {
+      console.error(e);
+      fsExtra.rmdir(path);
+    }
+  }
 };
