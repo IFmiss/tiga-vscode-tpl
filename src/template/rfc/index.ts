@@ -1,18 +1,23 @@
+import tplExp from "../../utils/tplExp";
+
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
-    name,
-    type,
+    name: moduleName,
+    style: styleExt,
+    cssModules,
+    useTypeScript
   } = options;
 
-  return(`import React from 'react';
-    import './${name}.less';
+  const name = moduleName.toLocaleLowerCase();
+
+  const str = `import React from 'react';
+    ${cssModules ? `import styles from './${name}.${styleExt}';` : `import './${name}.${styleExt}';`}
     // import PropTypes from 'prop-types';
 
-    export interface ${name}Props {};
-
-    const ${name}: React.FC<${name}Props> = () => {
+    ${useTypeScript ? `export interface ${name}Props {};\n` : `--rm--`}
+    const ${name}${useTypeScript ? `: React.FC<${name}Props>` : ''} = () => {
       return (
-        <div>this iss ${name}</div>
+        <div className={${cssModules ? `styles.${name}` : 'name'}}>this iss ${name}</div>
       );
     };
 
@@ -21,6 +26,6 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     //};
 
     export default ${name};
-    `
-  ).replace(/^    /gm, '');
+    `;
+  return tplExp(str);
 }

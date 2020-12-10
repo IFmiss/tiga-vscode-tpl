@@ -3,7 +3,7 @@ import mkdir from './mkdir';
 import * as fsExtra from 'fs-extra';
 import getTplPath from './getTplPath';
 
-export default async function createTplFolder(parmas: any, options: Omit<RenderTemplateOptions, 'name' | 'path'>): Promise<RenderTemplateOptions> {
+export default async function createTplFolder(parmas: any, options: Pick<RenderTemplateOptions, 'type'>): Promise<RenderTemplateOptions> {
   const fPath = parmas?.fsPath;
 
   if (!fPath) {
@@ -27,7 +27,7 @@ export default async function createTplFolder(parmas: any, options: Omit<RenderT
   ], selectTsOpt);
 
   const selecStyleOpt: vscode.QuickPickOptions = {
-    placeHolder: '请选style样式',
+    placeHolder: '请选style样式'
   };
   const style = await vscode.window.showQuickPick([
     'less',
