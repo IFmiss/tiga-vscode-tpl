@@ -1,21 +1,6 @@
 import * as vscode from 'vscode';
-import createTplFolder from '../utils/createTplFolder';
-import { EXTENSIONS_MAP } from '../constance';
+import createModuleExtensions from './createModule';
 
-const tplRegisterCommands = () => {
-  return EXTENSIONS_MAP.map(({ command, type, render }) => {
-    return vscode.commands.registerCommand(command, async (parmas) => {
-      try {
-        const data = await createTplFolder(parmas, {
-          type: type as TemplateType
-        });
-        // 执行移动操作
-        render?.(data);
-      } catch (e) {
-        console.info('eee', e);
-      }
-    });
-  });
+export default function createExtensions(context: vscode.ExtensionContext) {
+  createModuleExtensions().map(item => context.subscriptions.push(item));
 };
-
-export default tplRegisterCommands;

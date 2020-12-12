@@ -14,18 +14,30 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     ${useCssModules ? `import styles from './${lowerName}.${styleExt}';` : `import './${lowerName}.${styleExt}';`}
     // import PropTypes from 'prop-types';
 
-    ${useTypeScript ? `export interface ${name}Props {};\n` : `--rm--`}
-    const ${name}${useTypeScript ? `: React.FC<${name}Props>` : ''} = () => {
-      return (
-        <div className={${useCssModules ? `styles.${lowerName}` : 'name'}}>this is ${name}</div>
-      );
+    ${useTypeScript ? `interface ${name}Props {};` : `--rm--`}
+    ${useTypeScript ? `interface ${name}State {};\n` : `--rm--`}
+    class ${name} extends React.Component${useTypeScript ? `<${name}Props, ${name}State>` : ''} {
+      constructor(props${useTypeScript ? `: Readonly<${name}Props>` : ''}) {
+        super(props);
+        this.state = {};
+      };
+    
+      componentDidMount () {
+        // monunted
+      };
+    
+      render () {
+        return (
+          <div className={${useCssModules ? `styles.${lowerName}` : 'name'}}>this is ${name}</div>
+        )
+      }
     };
 
     //${name}.propTypes = {
     //	props: PropTypes.string
     //};
-
+    
     export default ${name};
-    `;
+  `;
   return tplExp(tpl);
 }

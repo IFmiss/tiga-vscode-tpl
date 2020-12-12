@@ -11,7 +11,8 @@
 		"Snippets"
 	],
 	"activationEvents": [
-		"onCommand:tiga-tpl.createReactFC"
+		"onCommand:tiga-tpl.createReactFC",
+		"onCommand:tiga-tpl.createReactCC"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -37,6 +38,10 @@
 			{
 				"command": "tiga-tpl.createReactFC",
 				"title": "新建ReactFC组件"
+			},
+			{
+				"command": "tiga-tpl.createReactCC",
+				"title": "新建ReactCC组件"
 			}
 		],
 		"menus": {
@@ -44,7 +49,13 @@
 				{
 					"command": "tiga-tpl.createReactFC",
 					"alt": "tiga-tpl.createReactFC",
-					"group": "navigation",
+					"group": "1_modification@1",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "tiga-tpl.createReactCC",
+					"alt": "tiga-tpl.createReactCC",
+					"group": "1_modification@2",
 					"when": "explorerResourceIsFolder"
 				}
 			]

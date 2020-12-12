@@ -2,6 +2,11 @@ type TemplateType =
   | 'rfc'
   | 'rcc';
 
+type TplStyleType = 
+  | 'less'
+  | 'css'
+  | 'scss';
+
 interface RenderTemplateOptions {
   // 项目名称
   name: string;
@@ -16,9 +21,9 @@ interface RenderTemplateOptions {
   useTypeScript: boolean;
 
   // css预处理 less scss css;
-  style?: 'less' | 'css' | 'scss';
+  style?: TplStyleType;
 
   // 是否使用cssmodules；
-  cssModules?: boolean;
+  useCssModules?: boolean;
 }
 

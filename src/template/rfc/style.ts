@@ -1,7 +1,8 @@
-import { N } from "../../constance";
+import tplExp from "../../utils/tplExp";
 
-export default function compileIndex(options: RenderTemplateOptions): string {
+export default function compileStyle(options: RenderTemplateOptions): string {
   const { name } = options;
-  return `.${name.toLocaleLowerCase()} {} ${
-    N}`;
+  const tpl = `.${name.toLocaleLowerCase()} {}
+  `;
+  return tplExp(tpl);
 }

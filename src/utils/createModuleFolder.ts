@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
+import { NO_TEXT, OK_TEXT } from '../constance';
 import mkdir from './mkdir';
-import * as fsExtra from 'fs-extra';
-import getTplPath from './getTplPath';
 
+// 创建模块的模版 
 export default async function createTplFolder(parmas: any, options: Pick<RenderTemplateOptions, 'type'>): Promise<RenderTemplateOptions> {
   const fPath = parmas?.fsPath;
 
@@ -19,11 +19,11 @@ export default async function createTplFolder(parmas: any, options: Pick<RenderT
   if (!name) { return Promise.reject(); }
 
   const selectTsOpt: vscode.QuickPickOptions = {
-    placeHolder: '请选择语言类型',
+    placeHolder: '是否使用 TypeScript',
   };
   const useTypeScript = await vscode.window.showQuickPick([
-    'ts',
-    'js'
+    OK_TEXT,
+    NO_TEXT
   ], selectTsOpt);
 
   const selecStyleOpt: vscode.QuickPickOptions = {
@@ -38,19 +38,19 @@ export default async function createTplFolder(parmas: any, options: Pick<RenderT
   const selectCssModulesOpt: vscode.QuickPickOptions = {
     placeHolder: '是否使用 CSS Modules',
   };
-  const cssModules = await vscode.window.showQuickPick([
-    '👌',
-    '👎'
+  const useCssModules = await vscode.window.showQuickPick([
+    '👌 好',
+    '👋 不使用'
   ], selectCssModulesOpt);
 
   await mkdir(fPath, name);
 
-  return Promise.resolve({
+  return Promise.resolve<RenderTemplateOptions>({
     ...options,
     path: fPath,
     name: name,
-    useTypeScript: useTypeScript === 'ts',
-    style: style as any,
-    cssModules: cssModules === '👌'
+    useTypeScript: useTypeScript === OK_TEXT,
+    style: style as TplStyleType,
+    useCssModules: useCssModules === OK_TEXT
   });
 };

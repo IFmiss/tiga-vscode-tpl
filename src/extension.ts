@@ -2,12 +2,11 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 // import createFC from './extensions/createTPL/index';
-import tplRegisterCommands from './extensions/index';
+import createExtensions from './extensions/index';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	let editor = vscode.window.activeTextEditor;
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
@@ -17,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 
-	tplRegisterCommands().map(item => context.subscriptions.push(item));
+	createExtensions(context);
 }
 
 // this method is called when your extension is deactivated
