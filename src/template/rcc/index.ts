@@ -10,7 +10,8 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
   const lowerName = name.toLocaleLowerCase();
 
-  const tpl = `import React from 'react';
+  const tpl = `
+    import React from 'react';
     ${useCssModules ? `import styles from './${lowerName}.${styleExt}';` : `import './${lowerName}.${styleExt}';`}
     // import PropTypes from 'prop-types';
 

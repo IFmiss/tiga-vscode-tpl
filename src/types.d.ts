@@ -1,6 +1,8 @@
 type TemplateType = 
   | 'rfc'
-  | 'rcc';
+  | 'rcc'
+  | 'vue2'
+  | 'vue3';
 
 type TplStyleType = 
   | 'less'

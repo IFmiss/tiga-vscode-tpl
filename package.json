@@ -1,7 +1,13 @@
 {
 	"name": "tiga-tpl",
 	"displayName": "tiga-tpl",
-	"description": "",
+	"description": "react template and snippets",
+	"publisher": "daiwei",
+	"icon": "https://daiwei.site/static/logo/tiga-tpl.png",
+	"keywords": [
+		"react template",
+		"react snippets"
+	],
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.51.0"
@@ -12,7 +18,8 @@
 	],
 	"activationEvents": [
 		"onCommand:tiga-tpl.createReactFC",
-		"onCommand:tiga-tpl.createReactCC"
+		"onCommand:tiga-tpl.createReactCC",
+		"onCommand:tiga-tpl.createVue2"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -42,6 +49,10 @@
 			{
 				"command": "tiga-tpl.createReactCC",
 				"title": "新建ReactCC组件"
+			},
+			{
+				"command": "tiga-tpl.createVue2",
+				"title": "新建Vue2.0组件"
 			}
 		],
 		"menus": {
@@ -56,6 +67,12 @@
 					"command": "tiga-tpl.createReactCC",
 					"alt": "tiga-tpl.createReactCC",
 					"group": "1_modification@2",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "tiga-tpl.createVue2",
+					"alt": "tiga-tpl.createVue2",
+					"group": "1_modification@3",
 					"when": "explorerResourceIsFolder"
 				}
 			]
