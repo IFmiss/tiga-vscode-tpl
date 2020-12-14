@@ -1,14 +1,25 @@
 import tplExp from "../../utils/tplExp";
 
-export default function compileIndex(options: RenderTemplateOptions): string {
+export default function compileIndex(options: RenderVueTemplateOptions): string {
   const {
     name,
     style,
-    useCssModules,
+    importStyleType,
     useTypeScript
   } = options;
 
   const lowerName = name.toLocaleLowerCase();
+
+  const getStyleTag = () => {
+    if (importStyleType === 'scoped') {
+      return `<style 'scoped' lang='${style}'`;
+    } else if (importStyleType === 'css-module') {
+      return `<style 'module' lang='${style}'`;
+    }
+    return `<style lang='${style}'`;
+  }
+
+  let classNameStr = ''
 
   const tpl = `
     <template>
@@ -26,7 +37,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
       }
     });
     </script>
-    <style ${useCssModules ? 'module' : 'scoped'} lang='${style}'>
+    <style ${styleStrTag}>
       .${lowerName} {}
     </style>
   `;
