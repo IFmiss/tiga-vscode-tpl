@@ -29,3 +29,11 @@ interface RenderTemplateOptions {
   useCssModules?: boolean;
 }
 
+type ImportStyleType = 
+  | 'scoped'
+  | 'css-module'
+  | 'none';
+
+type RenderVueTemplateOptions = Omit<RenderTemplateOptions, 'useCssModules'> & {
+  importStyleType: ImportStyleType
+};

@@ -8,6 +8,7 @@ export default function renderRFC(options: RenderTemplateOptions) {
     path,
     useTypeScript: ts,
   } = options;
+  console.info(options);
 
   const vueExt = 'vue';
   

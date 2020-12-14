@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import createModuleFolder from '../../utils/createModuleFolder';
+import createModuleFolder from '../../utils/createReactFolder';
 import { EXTENSION_MODULE_MAP } from '../../constance';
 
 export default function createModule () {
