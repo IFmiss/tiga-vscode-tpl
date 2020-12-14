@@ -1,16 +1,27 @@
 # tiga-vscode-tpl
-快速生成 react 模版的 vscode插件
+Quickly generate vscode plugin for react template
+
+### Supported languages 
+- react 
+  - jsx
+  - tsx
 
 ### create Tpl
 create React Function Component
-![创建模块目录](./images/FC.gif)
+
+![创建模块目录](images/FC.gif)
 
 create React Class Component
-![创建模块目录](./images/CC.gif)
+
+![创建模块目录](images/CC.gif)
 
 ### Snippets
-React Snippets
-`rcc`: React Class Component
-`rfc`: React Function Component
-![Snippets](./images/TPL.gif);
+support React Snippets
+
+![Snippets](images/TPL.gif);
+
+|  code  |         Content           |
+| :----: | --------------------------|
+|  `rfc` |  React Function Component |
+|  `rcc` |    React Class Component  |
 

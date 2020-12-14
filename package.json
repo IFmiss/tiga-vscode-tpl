@@ -1,18 +1,22 @@
 {
 	"name": "tiga-tpl",
-	"displayName": "tiga-tpl",
+	"displayName": "code snippets and template for react",
 	"description": "react template and snippets",
 	"publisher": "daiwei",
-	"icon": "images/tiga-tpl.png",
+	"icon": "images/logo.png",
 	"baseContentUrl": "./",
 	"baseImagesUrl": "./images",
 	"keywords": [
 		"react template",
 		"react snippets"
 	],
-	"version": "0.0.2",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.51.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/IFmiss/tiga-vscode-tpl"
 	},
 	"categories": [
 		"Other",
