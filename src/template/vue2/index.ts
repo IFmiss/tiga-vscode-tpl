@@ -12,32 +12,37 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
 
   const getStyleTag = () => {
     if (importStyleType === 'scoped') {
-      return `<style 'scoped' lang='${style}'`;
+      return `scoped lang='${style}'`;
     } else if (importStyleType === 'css-module') {
-      return `<style 'module' lang='${style}'`;
+      return `module lang='${style}'`;
     }
-    return `<style lang='${style}'`;
-  }
+    return `lang='${style}'`;
+  };
 
-  let classNameStr = ''
+  const getDivTag = () => {
+    if (importStyleType === 'css-module') {
+      return `:class='$style.${lowerName}'`;
+    }
+    return `class='${lowerName}'`;
+  };
 
   const tpl = `
     <template>
-      <div ${useCssModules ? `class='${lowerName}'` : `:class='$style.red'`}>
+      <div ${getDivTag()}>
         this is ${name}
       </div>
     </template>
 
-    <script${useTypeScript ? `  lang='ts'` : ''}>
-    import Vue from "vue";
+    <script${useTypeScript ? ` lang='ts'` : ''}>
+    import Vue from 'vue';
     export default Vue.extend({
       name: '${name}',
-      props: {
+      ${useTypeScript ? `props: {
         // title: String
-      }
+      }`: ''}
     });
     </script>
-    <style ${styleStrTag}>
+    <style ${getStyleTag()}>
       .${lowerName} {}
     </style>
   `;

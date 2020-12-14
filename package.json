@@ -35,16 +35,12 @@
 				"path": "./src/snippets/tpl-react.json"
 			},
 			{
-				"language": "javascript",
-				"path": "./src/snippets/tpl-react.json"
-			},
-			{
 				"language": "typescriptreact",
 				"path": "./src/snippets/tpl-react-ts.json"
 			},
 			{
-				"language": "typescript",
-				"path": "./src/snippets/tpl-react-ts.json"
+				"language": "vue",
+				"path": "./src/snippets/tpl-vue.json"
 			}
 		],
 		"commands": [
