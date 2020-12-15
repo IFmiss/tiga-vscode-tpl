@@ -1,7 +1,7 @@
 {
 	"name": "tiga-tpl",
-	"displayName": "code snippets and template for react",
-	"description": "react template and snippets",
+	"displayName": "react vue code snippets and template",
+	"description": "vue react template and snippets",
 	"publisher": "daiwei",
 	"icon": "images/logo.png",
 	"baseContentUrl": "./",

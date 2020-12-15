@@ -7,7 +7,6 @@ Quickly generate vscode plugin for react template
   - tsx
 - vue
 
-
 ### create Tpl
 create React Function Component
 
@@ -16,6 +15,8 @@ create React Function Component
 create React Class Component
 
 ![创建模块目录](images/CC.gif)
+
+create Vue2.0
 
 ### Snippets
 support React Snippets
