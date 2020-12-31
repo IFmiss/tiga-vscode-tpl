@@ -10,7 +10,7 @@
 		"react template",
 		"react snippets"
 	],
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -46,15 +46,15 @@
 		"commands": [
 			{
 				"command": "tiga-tpl.createReactFC",
-				"title": "新建ReactFC组件"
+				"title": "create React Function Component"
 			},
 			{
 				"command": "tiga-tpl.createReactCC",
-				"title": "新建ReactCC组件"
+				"title": "create React Class Component"
 			},
 			{
 				"command": "tiga-tpl.createVue2",
-				"title": "新建Vue2.0组件"
+				"title": "create Vue2.0 Component"
 			}
 		],
 		"menus": {

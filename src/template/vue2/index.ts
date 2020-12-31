@@ -1,3 +1,4 @@
+import { fmtUpStart } from "../../utils/str";
 import tplExp from "../../utils/tplExp";
 
 export default function compileIndex(options: RenderVueTemplateOptions): string {
@@ -9,6 +10,7 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
   } = options;
 
   const lowerName = name.toLocaleLowerCase();
+  const upStartName = fmtUpStart(name);
 
   const getStyleTag = () => {
     if (importStyleType === 'scoped') {
@@ -29,21 +31,23 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
   const tpl = `
     <template>
       <div ${getDivTag()}>
-        this is ${name}
+        this is ${upStartName}
       </div>
     </template>
 
     <script${useTypeScript ? ` lang='ts'` : ''}>
     import Vue from 'vue';
     export default Vue.extend({
-      name: '${name}',
+      name: '${upStartName}',
       ${useTypeScript ? `props: {
         // title: String
       }`: ''}
     });
     </script>
     <style ${getStyleTag()}>
-      .${lowerName} {}
+      .${lowerName} {
+        position: relative;
+      }
     </style>
   `;
   return tplExp(tpl);

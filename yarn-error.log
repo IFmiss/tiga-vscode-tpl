@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /Users/daiwei/.yarn/bin/yarn.js
+  /usr/local/bin/node /Users/daiwei/.yarn/bin/yarn.js publish
 
 PATH: 
-  /Users/daiwei/.npm-global/bin:/Users/daiwei/.yarn/bin:/Users/daiwei/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/daiwei/.npm-global/bin:/Users/daiwei/.yarn/bin:/Users/daiwei/.config/yarn/global/node_modules/.bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/software/nodejs/bin/:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
+  /Users/daiwei/.npm-global/bin:/Users/daiwei/.yarn/bin:/Users/daiwei/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/daiwei/.npm-global/bin:/Users/daiwei/.yarn/bin:/Users/daiwei/.config/yarn/global/node_modules/.bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
 
 Yarn version: 
   1.22.5
@@ -14,26 +14,47 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: http://hnpm.hupu.io/universalify/-/universalify-1.0.0.tgz: ETIMEDOUT
-      at Timeout._onTimeout (/Users/daiwei/.yarn/lib/cli.js:141409:19)
-      at listOnTimeout (internal/timers.js:531:17)
-      at processTimers (internal/timers.js:475:7)
+  Error: https://registry.npm.taobao.org/-/user/org.couchdb.user:daiwei: [conflict] User daiwei already exists
+      at Request.params.callback [as _callback] (/Users/daiwei/.yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/Users/daiwei/.yarn/lib/cli.js:140749:22)
+      at Request.emit (events.js:210:5)
+      at Request.<anonymous> (/Users/daiwei/.yarn/lib/cli.js:141721:10)
+      at Request.emit (events.js:210:5)
+      at IncomingMessage.<anonymous> (/Users/daiwei/.yarn/lib/cli.js:141643:12)
+      at Object.onceWrapper (events.js:299:28)
+      at IncomingMessage.emit (events.js:215:7)
+      at endReadableNT (_stream_readable.js:1184:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
   	"name": "tiga-tpl",
-  	"displayName": "tiga-tpl",
-  	"description": "",
-  	"version": "0.0.1",
+  	"displayName": "react vue code snippets and template",
+  	"description": "vue react template and snippets",
+  	"publisher": "daiwei",
+  	"icon": "images/logo.png",
+  	"baseContentUrl": "./",
+  	"baseImagesUrl": "./images",
+  	"keywords": [
+  		"react template",
+  		"react snippets"
+  	],
+  	"version": "0.0.6",
   	"engines": {
   		"vscode": "^1.51.0"
+  	},
+  	"repository": {
+  		"type": "git",
+  		"url": "https://github.com/IFmiss/tiga-vscode-tpl"
   	},
   	"categories": [
   		"Other",
   		"Snippets"
   	],
   	"activationEvents": [
-  		"onCommand:tiga-tpl.createReactFC"
+  		"onCommand:tiga-tpl.createReactFC",
+  		"onCommand:tiga-tpl.createReactCC",
+  		"onCommand:tiga-tpl.createVue2"
   	],
   	"main": "./out/extension.js",
   	"contributes": {
@@ -43,22 +64,26 @@ npm manifest:
   				"path": "./src/snippets/tpl-react.json"
   			},
   			{
-  				"language": "javascript",
-  				"path": "./src/snippets/tpl-react.json"
-  			},
-  			{
   				"language": "typescriptreact",
   				"path": "./src/snippets/tpl-react-ts.json"
   			},
   			{
-  				"language": "typescript",
-  				"path": "./src/snippets/tpl-react-ts.json"
+  				"language": "vue",
+  				"path": "./src/snippets/tpl-vue.json"
   			}
   		],
   		"commands": [
   			{
   				"command": "tiga-tpl.createReactFC",
-  				"title": "新建ReactFC组件"
+  				"title": "create React Function Component"
+  			},
+  			{
+  				"command": "tiga-tpl.createReactCC",
+  				"title": "create React Class Component"
+  			},
+  			{
+  				"command": "tiga-tpl.createVue2",
+  				"title": "create Vue2.0 Component"
   			}
   		],
   		"menus": {
@@ -66,7 +91,19 @@ npm manifest:
   				{
   					"command": "tiga-tpl.createReactFC",
   					"alt": "tiga-tpl.createReactFC",
-  					"group": "navigation",
+  					"group": "1_modification@1",
+  					"when": "explorerResourceIsFolder"
+  				},
+  				{
+  					"command": "tiga-tpl.createReactCC",
+  					"alt": "tiga-tpl.createReactCC",
+  					"group": "1_modification@2",
+  					"when": "explorerResourceIsFolder"
+  				},
+  				{
+  					"command": "tiga-tpl.createVue2",
+  					"alt": "tiga-tpl.createVue2",
+  					"group": "1_modification@3",
   					"when": "explorerResourceIsFolder"
   				}
   			]
@@ -75,6 +112,7 @@ npm manifest:
   	"scripts": {
   		"vscode:prepublish": "yarn run compile",
   		"compile": "tsc -p ./",
+  		"publish": "vsce publish",
   		"watch": "tsc -watch -p ./",
   		"pretest": "yarn run compile && yarn run lint",
   		"lint": "eslint src --ext ts",
