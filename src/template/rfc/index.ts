@@ -20,7 +20,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     ${useTypeScript ? `export interface ${upStartName}Props {}\n` : `--rm--`}
     const ${upStartName}${useTypeScript ? `: React.FC<${upStartName}Props>` : ''} = () => {
       return (
-        <div className={${useCssModules ? `styles.${lowerName}` : 'name'}}>this is ${upStartName}</div>
+        <div className=${useCssModules ? `{styles.${lowerName}}` : `'${lowerName}'`}>this is ${upStartName}</div>
       );
     };
 

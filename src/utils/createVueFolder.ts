@@ -7,14 +7,14 @@ export default async function createTplFolder(parmas: any, options: Pick<RenderV
   const fPath = parmas?.fsPath;
 
   const inputNameOpt: vscode.InputBoxOptions = {
-    prompt: '请输入模块名称',
-    placeHolder: '模块名',
+    prompt: 'input module(component) name',
+    placeHolder: 'module(component) name',
   };
   const name = await vscode.window.showInputBox(inputNameOpt);
   if (!name) { return Promise.reject(); }
 
   const selectTsOpt: vscode.QuickPickOptions = {
-    placeHolder: '是否使用 TypeScript',
+    placeHolder: 'use TypeScript?',
   };
   const useTypeScript = await vscode.window.showQuickPick([
     OK_TEXT,
@@ -22,7 +22,7 @@ export default async function createTplFolder(parmas: any, options: Pick<RenderV
   ], selectTsOpt);
 
   const selecStyleOpt: vscode.QuickPickOptions = {
-    placeHolder: '请选style样式'
+    placeHolder: 'select style type'
   };
   const style = await vscode.window.showQuickPick([
     'less',
@@ -31,7 +31,7 @@ export default async function createTplFolder(parmas: any, options: Pick<RenderV
   ], selecStyleOpt);
 
   const importStyleTypeOpt: vscode.QuickPickOptions = {
-    placeHolder: 'style 引入类型',
+    placeHolder: 'use CSS Modules?',
   };
   const importStyleType = await vscode.window.showQuickPick([
     'scoped',

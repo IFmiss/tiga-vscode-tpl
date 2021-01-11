@@ -28,10 +28,10 @@ export default function compileIndex(options: RenderTemplateOptions): string {
       componentDidMount () {
         // monunted
       };
-    
+
       render () {
         return (
-          <div className={${useCssModules ? `styles.${lowerName}` : 'name'}}>this is ${upStartName}</div>
+          <div className=${useCssModules ? `{styles.${lowerName}}` : `'${lowerName}'`}>this is ${upStartName}</div>
         )
       }
     };

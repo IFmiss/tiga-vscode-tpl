@@ -1,11 +1,16 @@
 # tiga-vscode-tpl
 Quickly generate vscode plugin for react template
 
+### 版本修复
+- v0.0.7 
+  - fix: no css moudles classNames value
+
 ### Supported languages 
 - react 
   - jsx
   - tsx
 - vue
+  - vue2.0
 
 ### create Tpl
 create React Function Component

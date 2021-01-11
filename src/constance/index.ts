@@ -5,8 +5,8 @@ import vue2 from './../exec/vue2';
 
 export const N = '\n';
 
-export const OK_TEXT = '👌 好';
-export const NO_TEXT = '👋 不使用';
+export const OK_TEXT = '👌 OK';
+export const NO_TEXT = '👋 NO';
 
 /**
  * 创建React模块的模版集合
