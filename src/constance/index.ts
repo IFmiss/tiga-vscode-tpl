@@ -1,6 +1,11 @@
 import rfc from './../exec/rfc';
 import rcc from './../exec/rcc';
 import vue2 from './../exec/vue2';
+
+// tpl fn
+import createReactFolder from './../utils/createReactFolder';
+import createVueFolder from './../utils/createVueFolder';
+
 // import vue3 from './../exec/vue3';
 
 export const N = '\n';
@@ -32,3 +37,14 @@ export const EXTENSION_VUE_MODULE_MAP = [{
   render: vue2,
   options: {}
 }];
+
+export const MODULE_MAP = {
+  'react': {
+    config: EXTENSION_MODULE_MAP,
+    tplFn: createReactFolder
+  },
+  'vue': {
+    config: EXTENSION_VUE_MODULE_MAP,
+    tplFn: createVueFolder
+  },
+};

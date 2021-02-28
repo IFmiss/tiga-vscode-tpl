@@ -17,14 +17,14 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     ${useCssModules ? `import styles from './${lowerName}.${styleExt}';` : `import './${lowerName}.${styleExt}';`}
     // import PropTypes from 'prop-types';
 
-    ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm--`}
-    ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm--`}
+    ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
+    ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm-row--`}
     class ${upStartName} extends React.Component${useTypeScript ? `<${upStartName}Props, ${upStartName}State>` : ''} {
       constructor(props${useTypeScript ? `: Readonly<${upStartName}Props>` : ''}) {
         super(props);
         this.state = {};
       };
-    
+
       componentDidMount () {
         // monunted
       };
@@ -39,7 +39,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     //${upStartName}.propTypes = {
     //	props: PropTypes.string
     //};
-    
+
     export default ${upStartName};
   `;
   return tplExp(tpl);

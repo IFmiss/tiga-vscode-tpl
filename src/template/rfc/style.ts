@@ -6,6 +6,6 @@ export default function compileStyle(options: RenderTemplateOptions): string {
     .${name.toLocaleLowerCase()} {
       position: relative;
     }
-  `;
+    --rm-space--`;
   return tplExp(tpl);
 }

@@ -49,6 +49,6 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
         position: relative;
       }
     </style>
-  `;
+    --rm-space--`;
   return tplExp(tpl);
 }

@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { NO_TEXT, OK_TEXT } from '../constance';
 import mkdir from './mkdir';
 
-// 创建模块的模版 
+// 创建模块的模版
 export default async function createTplFolder(parmas: any, options: Pick<RenderVueTemplateOptions, 'type'>): Promise<RenderVueTemplateOptions> {
   const fPath = parmas?.fsPath;
 

@@ -2,11 +2,11 @@
 Quickly generate vscode plugin for react template
 
 ### 版本修复
-- v0.0.7 
+- v0.0.7
   - fix: no css moudles classNames value
 
-### Supported languages 
-- react 
+### Supported languages
+- react
   - jsx
   - tsx
 - vue
