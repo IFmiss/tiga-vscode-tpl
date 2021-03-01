@@ -1,7 +1,9 @@
 # tiga-vscode-tpl
 Quickly generate vscode plugin for react template
 
-### 版本修复
+### 版本迭代
+- v0.0.8
+  - add: svelte template
 - v0.0.7
   - fix: no css moudles classNames value
 

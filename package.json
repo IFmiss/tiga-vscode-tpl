@@ -1,7 +1,7 @@
 {
 	"name": "tiga-tpl",
-	"displayName": "react vue code snippets and template",
-	"description": "vue react template and snippets",
+	"displayName": "react,vue,svelte code snippets and template",
+	"description": "react,vue,svelte template and snippets",
 	"publisher": "daiwei",
 	"icon": "images/logo.png",
 	"baseContentUrl": "./",
@@ -25,7 +25,8 @@
 	"activationEvents": [
 		"onCommand:tiga-tpl.createReactFC",
 		"onCommand:tiga-tpl.createReactCC",
-		"onCommand:tiga-tpl.createVue2"
+		"onCommand:tiga-tpl.createVue2",
+		"onCommand:tiga-tpl.createSvelte3"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -55,6 +56,10 @@
 			{
 				"command": "tiga-tpl.createVue2",
 				"title": "create Vue2.0 Component"
+			},
+			{
+				"command": "tiga-tpl.createSvelte3",
+				"title": "create Svelte3.0 Component"
 			}
 		],
 		"menus": {
@@ -75,6 +80,12 @@
 					"command": "tiga-tpl.createVue2",
 					"alt": "tiga-tpl.createVue2",
 					"group": "1_modification@3",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "tiga-tpl.createSvelte3",
+					"alt": "tiga-tpl.createSvelte3",
+					"group": "1_modification@4",
 					"when": "explorerResourceIsFolder"
 				}
 			]

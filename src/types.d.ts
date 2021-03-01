@@ -2,7 +2,8 @@ type TemplateType =
   | 'rfc'
   | 'rcc'
   | 'vue2'
-  | 'vue3';
+  | 'vue3'
+  | 'svelte3';
 
 type TplStyleType = 
   | 'less'
@@ -20,7 +21,7 @@ interface RenderTemplateOptions {
   type: TemplateType;
 
   // 是否是typescript
-  useTypeScript: boolean;
+  useTypeScript?: boolean;
 
   // css预处理 less scss css;
   style?: TplStyleType;
@@ -37,3 +38,5 @@ type ImportStyleType =
 type RenderVueTemplateOptions = Omit<RenderTemplateOptions, 'useCssModules'> & {
   importStyleType: ImportStyleType
 };
+
+type RenderSvelteTemplateOptions = Omit<RenderTemplateOptions, 'useCssModules' | 'style' | 'useTypeScript'>;

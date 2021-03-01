@@ -1,14 +1,12 @@
 import rfc from './../exec/rfc';
 import rcc from './../exec/rcc';
 import vue2 from './../exec/vue2';
+import svelte3 from './../exec/svelte3';
 
 // tpl fn
-import createReactFolder from './../utils/createReactFolder';
-import createVueFolder from './../utils/createVueFolder';
-
-// import vue3 from './../exec/vue3';
-
-export const N = '\n';
+import moduleConfigReact from '../utils/moduleConfigReact';
+import moduleConfigVue2 from '../utils/moduleConfigVue';
+import moduleConfigSvelte from '../utils/moduleConfigSvelte';
 
 export const OK_TEXT = '👌 OK';
 export const NO_TEXT = '👋 NO';
@@ -38,13 +36,27 @@ export const EXTENSION_VUE_MODULE_MAP = [{
   options: {}
 }];
 
+/**
+ * 创建Svelte模版集合
+ */
+export const EXTENSION_SVELTE_MODULE_MAP = [{
+  type: 'svelte3',
+  command: 'tiga-tpl.createSvelte3',
+  render: svelte3,
+  options: {}
+}];
+
 export const MODULE_MAP = {
   'react': {
     config: EXTENSION_MODULE_MAP,
-    tplFn: createReactFolder
+    tplFn: moduleConfigReact
   },
   'vue': {
     config: EXTENSION_VUE_MODULE_MAP,
-    tplFn: createVueFolder
+    tplFn: moduleConfigVue2
   },
+  'svelte': {
+    config: EXTENSION_SVELTE_MODULE_MAP,
+    tplFn: moduleConfigSvelte
+  }
 };

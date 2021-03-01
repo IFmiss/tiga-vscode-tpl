@@ -3,7 +3,7 @@ import { NO_TEXT, OK_TEXT } from '../constance';
 import mkdir from './mkdir';
 
 // 创建模块的模版
-export default async function createTplFolder(parmas: any, options: Pick<RenderVueTemplateOptions, 'type'>): Promise<RenderVueTemplateOptions> {
+export default async function moduleConfigReact(parmas: any, options: Pick<RenderTemplateOptions, 'type'>): Promise<RenderTemplateOptions> {
   const fPath = parmas?.fsPath;
 
   const inputNameOpt: vscode.InputBoxOptions = {
@@ -30,23 +30,22 @@ export default async function createTplFolder(parmas: any, options: Pick<RenderV
     'scss'
   ], selecStyleOpt);
 
-  const importStyleTypeOpt: vscode.QuickPickOptions = {
+  const selectCssModulesOpt: vscode.QuickPickOptions = {
     placeHolder: 'use CSS Modules?',
   };
-  const importStyleType = await vscode.window.showQuickPick([
-    'scoped',
-    'css-module',
-    'none'
-  ], importStyleTypeOpt) as ImportStyleType;
+  const useCssModules = await vscode.window.showQuickPick([
+    OK_TEXT,
+    NO_TEXT
+  ], selectCssModulesOpt);
 
   await mkdir(fPath, name);
 
-  return Promise.resolve<RenderVueTemplateOptions>({
+  return Promise.resolve<RenderTemplateOptions>({
     ...options,
     path: fPath,
     name: name,
     useTypeScript: useTypeScript === OK_TEXT,
     style: style as TplStyleType,
-    importStyleType
+    useCssModules: useCssModules === OK_TEXT
   });
 };

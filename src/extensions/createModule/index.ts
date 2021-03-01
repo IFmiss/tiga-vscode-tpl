@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { MODULE_MAP } from '../../constance';
 
-export default function createModule (moduleType: 'react' | 'vue') {
+export default function createModule (moduleType: 'react' | 'vue' | 'svelte') {
   const M = MODULE_MAP[moduleType];
   return M.config.map(({ command, type, render }) => {
     return vscode.commands.registerCommand(command, async (parmas) => {
@@ -9,6 +9,7 @@ export default function createModule (moduleType: 'react' | 'vue') {
         const data = await M.tplFn(parmas, {
           type: type as TemplateType
         });
+        console.info('data', data);
         // 执行移动操作
         render?.(data);
       } catch (e) {
