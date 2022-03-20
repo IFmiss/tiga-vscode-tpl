@@ -1,5 +1,5 @@
 import { fmtUpStart } from "../../utils/str";
-import tplExp from "../../utils/tplExp";
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
 
 export default function compileIndex(options: RenderSvelteTemplateOptions) {
   const {
@@ -8,7 +8,7 @@ export default function compileIndex(options: RenderSvelteTemplateOptions) {
 
   const lowerName = name.toLocaleLowerCase();
   const upStartName = fmtUpStart(name);
-  
+
   const tpl = `
     <script>
       import { onMount } from 'svelte';
@@ -17,14 +17,14 @@ export default function compileIndex(options: RenderSvelteTemplateOptions) {
         // ${upStartName} mounted
       });
     </script>
-    
+
     <div class='${lowerName}'>this is {name}</div>
-    
+
     <style>
       .${lowerName} {
         position: relative;
       }
     </style>
-    --rm-space--`;
+  `;
   return tplExp(tpl);
 }

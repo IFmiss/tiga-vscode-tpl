@@ -4,6 +4,7 @@ Quickly generate vscode plugin for react template
 ### 版本迭代
 - v0.0.8
   - add: svelte template
+  - fix: remove end of space display
 - v0.0.7
   - fix: no css moudles classNames value
 

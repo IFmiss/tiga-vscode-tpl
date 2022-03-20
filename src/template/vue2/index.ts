@@ -1,5 +1,5 @@
 import { fmtUpStart } from "../../utils/str";
-import tplExp from "../../utils/tplExp";
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
 
 export default function compileIndex(options: RenderVueTemplateOptions): string {
   const {
@@ -49,6 +49,6 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
         position: relative;
       }
     </style>
-    --rm-space--`;
+  `;
   return tplExp(tpl);
 }

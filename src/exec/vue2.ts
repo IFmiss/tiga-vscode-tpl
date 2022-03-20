@@ -11,7 +11,7 @@ export default function renderRFC(options: RenderTemplateOptions) {
   console.info(options);
 
   const vueExt = 'vue';
-  
+
   const TPL_MAP = {
     [`${name}/index.${vueExt}`]: renderContextFile(compileIndex, options),
   };

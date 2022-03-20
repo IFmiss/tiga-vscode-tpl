@@ -1,5 +1,5 @@
 import { fmtUpStart } from "../../utils/str";
-import tplExp from "../../utils/tplExp";
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
@@ -29,6 +29,6 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     //};
 
     export default memo(${upStartName});
-    `;
+  `;
   return tplExp(tpl);
 }

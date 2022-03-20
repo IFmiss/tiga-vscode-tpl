@@ -8,7 +8,6 @@
 		],
 		"sourceMap": true,
 		"rootDir": "src",
-		
 		"rootDirs": [
 			"./template",
 			"./src"

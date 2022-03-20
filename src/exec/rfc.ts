@@ -13,7 +13,7 @@ export default function renderRFC(options: RenderTemplateOptions) {
 
   const reactExt = ts ? 'tsx' : 'jsx';
   const styleExt = style;
-  
+
   const TPL_MAP = {
     [`${name}/index.${reactExt}`]: renderContextFile(compileIndex, options),
     [`${name}/${name.toLocaleLowerCase()}.${styleExt}`]: renderContextFile(compileStyle, options),

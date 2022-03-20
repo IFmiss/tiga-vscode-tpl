@@ -1,11 +1,11 @@
-type TemplateType = 
+type TemplateType =
   | 'rfc'
   | 'rcc'
   | 'vue2'
   | 'vue3'
   | 'svelte3';
 
-type TplStyleType = 
+type TplStyleType =
   | 'less'
   | 'css'
   | 'scss';
@@ -30,7 +30,7 @@ interface RenderTemplateOptions {
   useCssModules?: boolean;
 }
 
-type ImportStyleType = 
+type ImportStyleType =
   | 'scoped'
   | 'css-module'
   | 'none';

@@ -1,4 +1,4 @@
-import tplExp from "../../utils/tplExp";
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
 
 export default function compileStyle(options: RenderTemplateOptions): string {
   const { name } = options;
@@ -6,6 +6,6 @@ export default function compileStyle(options: RenderTemplateOptions): string {
     .${name.toLocaleLowerCase()} {
       position: relative;
     }
-    --rm-space--`;
+  `;
   return tplExp(tpl);
 }

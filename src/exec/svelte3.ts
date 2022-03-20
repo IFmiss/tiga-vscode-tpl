@@ -8,8 +8,8 @@ export default function renderRFC(options: RenderTemplateOptions) {
     path,
   } = options;
 
-  const vueExt = 'svelet';
-  
+  const vueExt = 'svelte';
+
   const TPL_MAP = {
     [`${name}/index.${vueExt}`]: renderContextFile(compileIndex, options),
   };

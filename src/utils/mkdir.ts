@@ -6,7 +6,7 @@ export default async function mkdir(path: string, name: string) {
   try {
     await fsExtra.mkdirSync(`${path}/${name}`);
     return Promise.resolve();
-  } catch(e) {
+  } catch(e: any) {
     if (e.errno === -17) {
       vscode.window.showInformationMessage(`文件夹${name}已存在该目录`);
     } else {
