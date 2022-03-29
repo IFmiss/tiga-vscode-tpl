@@ -2,8 +2,8 @@ type TemplateType =
   | 'rfc'
   | 'rcc'
   | 'vue2'
-  | 'vue3'
-  | 'svelte3';
+  | 'svelte3'
+  | 'react-mini-program';
 
 type TplStyleType =
   | 'less'

@@ -1,13 +1,14 @@
 import * as vscode from 'vscode';
 import { MODULE_MAP } from '../../constance';
 
-export default function createModule (moduleType: 'react' | 'vue' | 'svelte') {
+export default function createModule (moduleType: 'react' | 'vue' | 'svelte' | 'react-mini-program') {
   const M = MODULE_MAP[moduleType];
-  return M.config.map(({ command, type, render }) => {
+  return M.config.map(({ command, type, render, options }) => {
     return vscode.commands.registerCommand(command, async (parmas) => {
       try {
         const data = await M.tplFn(parmas, {
-          type: type as TemplateType
+          type: type as TemplateType,
+          ...options
         });
         console.info('data', data);
         // 执行移动操作

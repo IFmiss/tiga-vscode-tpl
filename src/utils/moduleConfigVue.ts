@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { NO_TEXT, OK_TEXT } from '../constance';
-import mkdir from './mkdir';
+import { mkdir } from '@tiga-cli/utils';
 
 // 创建模块的模版
 export default async function moduleConfigVue(parmas: any, options: Pick<RenderVueTemplateOptions, 'type'>): Promise<RenderVueTemplateOptions> {
@@ -39,7 +39,7 @@ export default async function moduleConfigVue(parmas: any, options: Pick<RenderV
     'none'
   ], importStyleTypeOpt) as ImportStyleType;
 
-  await mkdir(fPath, name);
+  await mkdir(`${fPath}/${name}`);
 
   return Promise.resolve<RenderVueTemplateOptions>({
     ...options,

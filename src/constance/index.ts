@@ -2,11 +2,13 @@ import rfc from './../exec/rfc';
 import rcc from './../exec/rcc';
 import vue2 from './../exec/vue2';
 import svelte3 from './../exec/svelte3';
+import reactMiniProgram from './../exec/react-mini-program';
 
 // tpl fn
 import moduleConfigReact from '../utils/moduleConfigReact';
 import moduleConfigVue2 from '../utils/moduleConfigVue';
 import moduleConfigSvelte from '../utils/moduleConfigSvelte';
+import moduleConfigReactMiniProgram from '../utils/moduleConfigReactMiniProgram';
 
 export const OK_TEXT = '👌 OK';
 export const NO_TEXT = '👋 NO';
@@ -46,6 +48,25 @@ export const EXTENSION_SVELTE_MODULE_MAP = [{
   options: {}
 }];
 
+/**
+ * 创建 react mini program 项目
+ */
+ export const REACT_MINI_PROGRAM = [{
+  type: 'rcc-mp',
+  command: 'tiga-tpl.createReactMiniProgramRCC',
+  render: reactMiniProgram,
+  options: {
+    classComponent: true
+  }
+}, {
+  type: 'rfc-mp',
+  command: 'tiga-tpl.createReactMiniProgramRFC',
+  render: reactMiniProgram,
+  options: {
+    classComponent: false
+  }
+}];
+
 export const MODULE_MAP = {
   'react': {
     config: EXTENSION_MODULE_MAP,
@@ -58,5 +79,9 @@ export const MODULE_MAP = {
   'svelte': {
     config: EXTENSION_SVELTE_MODULE_MAP,
     tplFn: moduleConfigSvelte
+  },
+  'react-mini-program': {
+    config: REACT_MINI_PROGRAM,
+    tplFn: moduleConfigReactMiniProgram
   }
 };

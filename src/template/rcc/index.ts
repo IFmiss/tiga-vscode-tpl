@@ -1,6 +1,4 @@
-import { fmtUpStart } from "../../utils/str";
-import { tpl as tplExp } from '@tiga-cli/tpl-core';
-
+import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
@@ -11,7 +9,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
   } = options;
 
   const lowerName = name.toLocaleLowerCase();
-  const upStartName = fmtUpStart(name);
+  const upStartName = strUpStart(name);
 
   const tpl = `
     import React from 'react';

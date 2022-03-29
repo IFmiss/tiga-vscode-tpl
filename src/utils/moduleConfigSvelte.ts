@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-import mkdir from './mkdir';
+import { mkdir } from '@tiga-cli/utils';
+
 export default async function moduleConfigSvelte(parmas: any, options: Pick<RenderVueTemplateOptions, 'type'>) {
   const fPath = parmas?.fsPath;
   const inputNameOpt: vscode.InputBoxOptions = {
@@ -10,7 +11,7 @@ export default async function moduleConfigSvelte(parmas: any, options: Pick<Rend
   const name = await vscode.window.showInputBox(inputNameOpt);
   if (!name) { return Promise.reject(); }
 
-  await mkdir(fPath, name);
+  await mkdir(`${fPath}/${name}`);
 
   return Promise.resolve<RenderSvelteTemplateOptions>({
     ...options,

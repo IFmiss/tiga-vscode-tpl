@@ -1,4 +1,4 @@
-import renderContextFile from "../utils/renderContextFile";
+import { renderContextFile } from "@tiga-cli/tpl-core";
 import compileIndex from '../template/vue2/index';
 import * as fsExtra from 'fs-extra';
 
