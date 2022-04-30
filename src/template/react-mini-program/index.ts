@@ -1,4 +1,5 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
+import * as vscode from 'vscode';
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
@@ -8,12 +9,13 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
   const lowerName = name.toLocaleLowerCase();
   const upStartName = strUpStart(name);
+  const { parameters: { miniProgramNpmOrgImport: orgName = "@hello" } } = vscode.workspace.getConfiguration('web-template');
 
   const tpl = `
     import React, { memo } from 'react';
 
-    import { View } from '@hello/mp-components'
-    import { useDidHide, useDidShow, useReady } from '@hello/mp-service'
+    import { View } from '${orgName}/mp-components'
+    import { useDidHide, useDidShow, useReady } from '${orgName}/mp-service'
 
     import './index.scss'
 

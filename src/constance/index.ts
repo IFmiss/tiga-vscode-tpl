@@ -19,12 +19,12 @@ export const NO_TEXT = '👋 NO';
  */
 export const EXTENSION_MODULE_MAP = [{
   type: 'rfc',
-  command: 'tiga-tpl.createReactFC',
+  command: 'web-template.createReactFC',
   render: rfc,
   options: {}
 }, {
   type: 'rcc',
-  command: 'tiga-tpl.createReactCC',
+  command: 'web-template.createReactCC',
   render: rcc,
   options: {}
 }];
@@ -34,12 +34,12 @@ export const EXTENSION_MODULE_MAP = [{
  */
 export const EXTENSION_VUE_MODULE_MAP = [{
   type: 'vue2',
-  command: 'tiga-tpl.createVue2',
+  command: 'web-template.createVue2',
   render: vue2,
   options: {}
 }, {
   type: 'vue3',
-  command: 'tiga-tpl.createVue3',
+  command: 'web-template.createVue3',
   render: vue3,
   options: {}
 }];
@@ -49,7 +49,7 @@ export const EXTENSION_VUE_MODULE_MAP = [{
  */
 export const EXTENSION_SVELTE_MODULE_MAP = [{
   type: 'svelte3',
-  command: 'tiga-tpl.createSvelte3',
+  command: 'web-template.createSvelte3',
   render: svelte3,
   options: {}
 }];
@@ -59,14 +59,14 @@ export const EXTENSION_SVELTE_MODULE_MAP = [{
  */
  export const REACT_MINI_PROGRAM = [{
   type: 'rcc-mp',
-  command: 'tiga-tpl.createReactMiniProgramRCC',
+  command: 'web-template.createReactMiniProgramRCC',
   render: reactMiniProgram,
   options: {
     classComponent: true
   }
 }, {
   type: 'rfc-mp',
-  command: 'tiga-tpl.createReactMiniProgramRFC',
+  command: 'web-template.createReactMiniProgramRFC',
   render: reactMiniProgram,
   options: {
     classComponent: false
