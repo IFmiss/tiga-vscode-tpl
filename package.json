@@ -26,30 +26,13 @@
 		"onCommand:tiga-tpl.createReactFC",
 		"onCommand:tiga-tpl.createReactCC",
 		"onCommand:tiga-tpl.createVue2",
+		"onCommand:tiga-tpl.createVue3",
 		"onCommand:tiga-tpl.createSvelte3",
 		"onCommand:tiga-tpl.createReactMiniProgramRCC",
 		"onCommand:tiga-tpl.createReactMiniProgramRFC"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"snippets": [
-			{
-				"language": "javascriptreact",
-				"path": "./src/snippets/tpl-react.json"
-			},
-			{
-				"language": "typescriptreact",
-				"path": "./src/snippets/tpl-react-ts.json"
-			},
-			{
-				"language": "vue",
-				"path": "./src/snippets/tpl-vue.json"
-			},
-			{
-				"language": "svelte",
-				"path": "./src/snippets/tpl-svelte.json"
-			}
-		],
 		"commands": [
 			{
 				"command": "tiga-tpl.createReactFC",
@@ -61,11 +44,15 @@
 			},
 			{
 				"command": "tiga-tpl.createVue2",
-				"title": "create Vue2.0 Component"
+				"title": "create Vue 2 Component"
+			},
+			{
+				"command": "tiga-tpl.createVue3",
+				"title": "create Vue 3 Component"
 			},
 			{
 				"command": "tiga-tpl.createSvelte3",
-				"title": "create Svelte 3.0 Component"
+				"title": "create Svelte 3 Component"
 			},
 			{
 				"command": "tiga-tpl.createReactMiniProgramRCC",
@@ -97,25 +84,42 @@
 					"when": "explorerResourceIsFolder"
 				},
 				{
+					"command": "tiga-tpl.createVue3",
+					"alt": "tiga-tpl.createVue3",
+					"group": "1_modification@4",
+					"when": "explorerResourceIsFolder"
+				},
+				{
 					"command": "tiga-tpl.createSvelte3",
 					"alt": "tiga-tpl.createSvelte3",
-					"group": "1_modification@4",
+					"group": "1_modification@5",
 					"when": "explorerResourceIsFolder"
 				},
 				{
 					"command": "tiga-tpl.createReactMiniProgramRCC",
 					"alt": "tiga-tpl.createReactMiniProgramRCC",
-					"group": "1_modification@5",
+					"group": "1_modification@6",
 					"when": "explorerResourceIsFolder"
 				},
 				{
 					"command": "tiga-tpl.createReactMiniProgramRFC",
 					"alt": "tiga-tpl.createReactMiniProgramRFC",
-					"group": "1_modification@6",
+					"group": "1_modification@7",
 					"when": "explorerResourceIsFolder"
 				}
 			]
-		}
+		},
+		"configuration": [{
+			"type": "object",
+			"title": "my plugin",
+			"properties": {
+				"tiga-tpl.name": {
+					"type": "string",
+					"default": "dw",
+					"description": "your name"
+				}
+			}
+		}]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",

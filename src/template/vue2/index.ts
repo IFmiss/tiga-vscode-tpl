@@ -1,4 +1,5 @@
-import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
+import { toLowerCaseFirst } from '../../utils/string';
 
 export default function compileIndex(options: RenderVueTemplateOptions): string {
   const {
@@ -8,8 +9,7 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
     useTypeScript
   } = options;
 
-  const lowerName = name.toLocaleLowerCase();
-  const upStartName = strUpStart(name);
+  const lowerName = toLowerCaseFirst(name);
 
   const getStyleTag = () => {
     if (importStyleType === 'scoped') {
@@ -30,14 +30,14 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
   const tpl = `
     <template>
       <div ${getDivTag()}>
-        this is ${upStartName}
+        this is ${lowerName}
       </div>
     </template>
 
     <script${useTypeScript ? ` lang='ts'` : ''}>
     import Vue from 'vue';
     export default Vue.extend({
-      name: '${upStartName}',
+      name: '${lowerName}',
       ${useTypeScript ? `props: {
         // title: String
       }`: ''}

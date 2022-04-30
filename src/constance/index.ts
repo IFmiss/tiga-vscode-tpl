@@ -1,6 +1,7 @@
 import rfc from './../exec/rfc';
 import rcc from './../exec/rcc';
 import vue2 from './../exec/vue2';
+import vue3 from './../exec/vue3';
 import svelte3 from './../exec/svelte3';
 import reactMiniProgram from './../exec/react-mini-program';
 
@@ -35,6 +36,11 @@ export const EXTENSION_VUE_MODULE_MAP = [{
   type: 'vue2',
   command: 'tiga-tpl.createVue2',
   render: vue2,
+  options: {}
+}, {
+  type: 'vue3',
+  command: 'tiga-tpl.createVue3',
+  render: vue3,
   options: {}
 }];
 

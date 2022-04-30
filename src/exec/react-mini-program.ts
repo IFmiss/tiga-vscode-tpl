@@ -6,7 +6,7 @@ import compileConfig from '../template/react-mini-program/config';
 
 import * as fsExtra from 'fs-extra';
 
-export default function renderMiniProgram(options: RenderTemplateOptions & {
+export default function render(options: RenderTemplateOptions & {
   classComponent?: boolean
 }) {
   const {

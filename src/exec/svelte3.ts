@@ -2,7 +2,7 @@ import { renderContextFile } from "@tiga-cli/tpl-core";
 import compileIndex from '../template/svelte3/index';
 import * as fsExtra from 'fs-extra';
 
-export default function renderRFC(options: RenderTemplateOptions) {
+export default function render(options: RenderTemplateOptions) {
   const {
     name,
     path,

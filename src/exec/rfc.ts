@@ -2,8 +2,9 @@ import { renderContextFile } from "@tiga-cli/tpl-core";
 import compileIndex from '../template/rfc/index';
 import compileStyle from '../template/rfc/style';
 import * as fsExtra from 'fs-extra';
+import { toLowerCaseFirst } from "../utils/string";
 
-export default function renderRFC(options: RenderTemplateOptions) {
+export default function render(options: RenderTemplateOptions) {
   const {
     name,
     path,
@@ -16,7 +17,7 @@ export default function renderRFC(options: RenderTemplateOptions) {
 
   const TPL_MAP = {
     [`${name}/index.${reactExt}`]: renderContextFile(compileIndex, options),
-    [`${name}/${name.toLocaleLowerCase()}.${styleExt}`]: renderContextFile(compileStyle, options),
+    [`${name}/${toLowerCaseFirst(name)}.${styleExt}`]: renderContextFile(compileStyle, options),
   };
 
   for (let [k, v] of Object.entries(TPL_MAP)) {

@@ -10,7 +10,12 @@ create React Class Component
 ![创建模块目录](images/CC.gif)
 
 > now you can create template like vue, react, react for mini-program, svelte
+
 ### change log
+- v0.1.4
+  - add: vue3.0 template
+  - remove: code snippet config
+  - change: styles name from all lowercase to lowercase first character
 - v0.1.0
   - add: create react cc/fc component for mini-program
 
@@ -37,20 +42,5 @@ create React Class Component
   - svelte3.0
 
 Support typescript, css modules, style type initial configuration
-
-### Snippets
-Supported Snippets
-
-|         code         |                 Content               |
-|        :----:        |   ---------------------------------   |
-|  `rfc`               |   React Function Component            |
-|  `rcc`               |   React Class Component               |
-|  `vue2-scoped-less`  |   Vue2 scoped less style template     |
-|  `vue2-scoped-css`   |   Vue2 scoped css style template      |
-|  `vue2-scoped-scss`  |   Vue2 scoped scss style template     |
-|  `vue2-module-scss`  |   Vue2 css module scss style template |
-|  `vue2-module-less`  |   Vue2 css module less style template |
-|  `vue2-module-css`   |   Vue2 css module css style template  |
-|  `svt`               |   Svelte 3.0 Template                 |
 
 
