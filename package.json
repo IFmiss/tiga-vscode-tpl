@@ -1,7 +1,7 @@
 {
-	"name": "web-template",
-	"displayName": "React, vue, svelte universal templates and fragments",
-	"description": "Quickly generate common code snippets and modules",
+	"name": "tiga-tpl",
+	"displayName": "Web templates for React, vue2, vue3, svelte, mini-program.",
+	"description": "Quickly generate common code. support typescript, scss, less, css-modules ...",
 	"publisher": "daiwei",
 	"icon": "images/logo.png",
 	"baseContentUrl": "./",
