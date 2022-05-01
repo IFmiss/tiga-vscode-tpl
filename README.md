@@ -1,14 +1,8 @@
 # vscode plugin for generate React, vue, svelte generic templates
 
-### how to use it?
-create React Function Component
-
-<video id="video" autoplay controls="" loop preload="none" type="video/mp4" src="./images/RFC.mp4"></video>
-
-
 > now you can create template like vue, react, react for mini-program, svelte
 
-### change log
+### Change log
 - v0.2.0
   - The display of the menu supports dynamic configuration. See the new setting `web-template.menus`
   - Add: vue3.0 template
@@ -27,6 +21,16 @@ create React Function Component
 
 - v0.0.7
   - Fix: no css moudles classNames value
+
+### How to use
+create React Function Component
+
+![RFC](images/RFC.gif)
+
+change custom menu
+
+![custom menu](images/menus-config.gif)
+
 
 ### Supported languages
 - react
