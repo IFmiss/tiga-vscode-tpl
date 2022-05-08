@@ -3,6 +3,8 @@
 > now you can create template like vue, react, react for mini-program, svelte
 
 ### Change log
+- v0.2.1
+  change classNames and style file name from all lowercase characters become lowercase first character
 - v0.2.0
   - The display of the menu supports dynamic configuration. See the new setting `web-template.menus`
   - Add: vue3.0 template
