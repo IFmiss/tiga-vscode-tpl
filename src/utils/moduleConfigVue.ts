@@ -25,9 +25,9 @@ export default async function moduleConfigVue(parmas: any, options: Pick<RenderV
     placeHolder: 'select style type'
   };
   const style = await vscode.window.showQuickPick([
+    'scss',
     'less',
-    'css',
-    'scss'
+    'css'
   ], selecStyleOpt);
 
   const importStyleTypeOpt: vscode.QuickPickOptions = {

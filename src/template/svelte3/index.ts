@@ -1,11 +1,12 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
+import { styleName } from '../../utils/style';
 
 export default function compileIndex(options: RenderSvelteTemplateOptions) {
   const {
     name
   } = options;
 
-  const lowerName = name.toLocaleLowerCase();
+  const className = styleName(name);
   const upStartName = strUpStart(name);
 
   const tpl = `
@@ -17,10 +18,10 @@ export default function compileIndex(options: RenderSvelteTemplateOptions) {
       });
     </script>
 
-    <div class='${lowerName}'>this is {name}</div>
+    <div class='${className}'>this is {name}</div>
 
     <style>
-      .${lowerName} {
+      .${className} {
         position: relative;
       }
     </style>

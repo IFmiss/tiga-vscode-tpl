@@ -8,7 +8,7 @@ export default async function mkdir(path: string, name: string) {
     return Promise.resolve();
   } catch(e: any) {
     if (e.errno === -17) {
-      vscode.window.showInformationMessage(`文件夹${name}已存在该目录`);
+      vscode.window.showInformationMessage(`folder [${name}] already exists`);
     } else {
       vscode.window.showInformationMessage(JSON.stringify(e));
     }

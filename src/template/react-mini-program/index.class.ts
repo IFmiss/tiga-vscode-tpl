@@ -1,4 +1,5 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
+import { styleName } from "../../utils/style";
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
@@ -6,7 +7,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     useTypeScript
   } = options;
 
-  const lowerName = name.toLocaleLowerCase();
+  const className = styleName(name);
   const upStartName = strUpStart(name);
 
   const tpl = `
@@ -36,7 +37,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
       render () {
         return (
-          <View className='${lowerName}'>this is ${upStartName}</View>
+          <View className='${className}'>this is ${upStartName}</View>
         )
       }
     };

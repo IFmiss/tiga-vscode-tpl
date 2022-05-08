@@ -1,5 +1,5 @@
 import { tpl as tplExp } from '@tiga-cli/tpl-core';
-import { toLowerCaseFirst } from '../../utils/string';
+import { styleName } from '../../utils/style';
 
 export default function compileIndex(options: RenderVueTemplateOptions): string {
   const {
@@ -9,7 +9,7 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
     useTypeScript
   } = options;
 
-  const lowerName = toLowerCaseFirst(name);
+  const className = styleName(name);
 
   const getStyleTag = () => {
     if (importStyleType === 'scoped') {
@@ -22,29 +22,29 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
 
   const getDivTag = () => {
     if (importStyleType === 'css-module') {
-      return `:class='$style.${lowerName}'`;
+      return `:class='$style.${className}'`;
     }
-    return `class='${lowerName}'`;
+    return `class='${className}'`;
   };
 
   const tpl = `
     <template>
       <div ${getDivTag()}>
-        this is ${lowerName}
+        this is ${className}
       </div>
     </template>
 
     <script${useTypeScript ? ` lang='ts'` : ''}>
     import Vue from 'vue';
     export default Vue.extend({
-      name: '${lowerName}',
+      name: '${className}',
       ${useTypeScript ? `props: {
         // title: String
       }`: ''}
     });
     </script>
     <style ${getStyleTag()}>
-      .${lowerName} {
+      .${className} {
         position: relative;
       }
     </style>

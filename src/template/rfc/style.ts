@@ -1,9 +1,10 @@
 import { tpl as tplExp } from '@tiga-cli/tpl-core';
+import { styleName } from "../../utils/style";
 
 export default function compileStyle(options: RenderTemplateOptions): string {
   const { name } = options;
   const tpl = `
-    .${name.toLocaleLowerCase()} {
+    .${styleName(name)} {
       position: relative;
     }
   `;

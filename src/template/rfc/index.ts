@@ -1,4 +1,5 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
+import { styleName } from "../../utils/style";
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
@@ -8,18 +9,18 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     useTypeScript
   } = options;
 
-  const lowerName = name.toLocaleLowerCase();
+  const className = styleName(name);
   const upStartName = strUpStart(name);
 
   const tpl = `
     import React, { memo } from 'react';
-    ${useCssModules ? `import styles from './${lowerName}.${styleExt}';` : `import './${lowerName}.${styleExt}';`}
+    ${useCssModules ? `import styles from './${className}.${styleExt}';` : `import './${className}.${styleExt}';`}
     // import PropTypes from 'prop-types';
 
     ${useTypeScript ? `export interface ${upStartName}Props {}\n` : `--rm-row--`}
     const ${upStartName}${useTypeScript ? `: React.FC<${upStartName}Props>` : ''} = () => {
       return (
-        <div className=${useCssModules ? `{styles.${lowerName}}` : `'${lowerName}'`}>this is ${upStartName}</div>
+        <div className=${useCssModules ? `{styles.${className}}` : `'${className}'`}>this is ${upStartName}</div>
       );
     };
 

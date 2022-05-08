@@ -25,9 +25,9 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
     placeHolder: 'select style type'
   };
   const style = await vscode.window.showQuickPick([
+    'scss',
     'less',
-    'css',
-    'scss'
+    'css'
   ], selecStyleOpt);
 
   const selectCssModulesOpt: vscode.QuickPickOptions = {
