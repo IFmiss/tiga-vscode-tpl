@@ -1,5 +1,5 @@
 import { tpl as tplExp } from '@tiga-cli/tpl-core';
-import { styleName } from '../../utils/style';
+import { styleClassName } from '../../utils/style';
 
 export default function compileIndex(options: RenderVueTemplateOptions): string {
   const {
@@ -9,7 +9,7 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
     useTypeScript
   } = options;
 
-  const className = styleName(name);
+  const className = styleClassName(name);
 
   const getStyleTag = () => {
     if (importStyleType === 'scoped') {

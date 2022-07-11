@@ -1,21 +1,23 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleName } from '../../utils/style';
+import { styleComponentsName, styleFileName as sFileName } from '../../utils/style';
+import * as vscode from 'vscode';
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
     name,
-    style: styleExt,
-    useCssModules,
     useTypeScript
   } = options;
 
-  const className = styleName(name);
+  const styleFileName = sFileName(name);
   const upStartName = strUpStart(name);
+  const styledComponentsName = styleComponentsName(name);
+  const { parameters: { displayReactPropType } } = vscode.workspace.getConfiguration('web-template');
 
   const tpl = `
     import React from 'react';
-    ${useCssModules ? `import styles from './${className}.${styleExt}';` : `import './${className}.${styleExt}';`}
-    // import PropTypes from 'prop-types';
+    import { Styled${name} } from './${styleFileName}';
+    ${displayReactPropType ? `// import PropTypes from 'prop-types';` : '--rm-row--'}
+
 
     ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
     ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm-row--`}
@@ -31,15 +33,18 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
       render () {
         return (
-          <div className=${useCssModules ? `{styles.${className}}` : `'${className}'`}>this is ${upStartName}</div>
+          <Styled${styledComponentsName}>this is ${upStartName}</Styled${styledComponentsName}>
         )
       }
     };
 
-    //${upStartName}.propTypes = {
-    //	props: PropTypes.string
-    //};
-
+    ${tplExp(
+      displayReactPropType ? `
+        //${upStartName}.propTypes = {
+        //	props: PropTypes.string
+        //};
+      ` : '--rm-row--',
+    )}
     export default ${upStartName};
   `;
   return tplExp(tpl);

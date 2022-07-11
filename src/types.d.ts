@@ -9,7 +9,8 @@ type TemplateType =
 type TplStyleType =
   | 'less'
   | 'css'
-  | 'scss';
+  | 'scss'
+  | 'styled-components';
 
 interface RenderTemplateOptions {
   // 项目名称
@@ -29,6 +30,9 @@ interface RenderTemplateOptions {
 
   // 是否使用cssmodules；
   useCssModules?: boolean;
+
+  // 是否是css in js  styled-components
+  cssInJs?: boolean;
 }
 
 type ImportStyleType =

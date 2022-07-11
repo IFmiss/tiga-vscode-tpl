@@ -1,7 +1,7 @@
 import { renderContextFile } from "@tiga-cli/tpl-core";
 import compileIndex from '../template/react-mini-program/index';
 import compileClassIndex from '../template/react-mini-program/index.class';
-import compileStyle from '../template/rfc/style';
+import compileStyle from '../template/react-mini-program/style';
 import compileConfig from '../template/react-mini-program/config';
 
 import * as fsExtra from 'fs-extra';

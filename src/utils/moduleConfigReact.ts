@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { NO_TEXT, OK_TEXT } from '../constance';
+import { CSS_IN_JS, NO_TEXT, OK_TEXT } from '../constance';
 import { mkdir } from '@tiga-cli/utils';
 
 // 创建模块的模版
@@ -21,22 +21,29 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
     NO_TEXT
   ], selectTsOpt);
 
-  const selecStyleOpt: vscode.QuickPickOptions = {
+  const selectStyleOpt: vscode.QuickPickOptions = {
     placeHolder: 'select style type'
   };
   const style = await vscode.window.showQuickPick([
+    'styled-components',
     'scss',
     'less',
     'css'
-  ], selecStyleOpt);
+  ], selectStyleOpt) as TplStyleType;
 
-  const selectCssModulesOpt: vscode.QuickPickOptions = {
-    placeHolder: 'use CSS Modules?',
-  };
-  const useCssModules = await vscode.window.showQuickPick([
-    OK_TEXT,
-    NO_TEXT
-  ], selectCssModulesOpt);
+
+  let useCssModules;
+  const cssInJs = CSS_IN_JS.includes(style);
+
+  if (!cssInJs) {
+    const selectCssModulesOpt: vscode.QuickPickOptions = {
+      placeHolder: 'use CSS Modules?',
+    };
+    useCssModules = await vscode.window.showQuickPick([
+      OK_TEXT,
+      NO_TEXT
+    ], selectCssModulesOpt);
+  }
 
   await mkdir(`${fPath}/${name}`);
 
@@ -46,6 +53,7 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
     name: name,
     useTypeScript: useTypeScript === OK_TEXT,
     style: style as TplStyleType,
-    useCssModules: useCssModules === OK_TEXT
+    useCssModules: useCssModules === OK_TEXT,
+    cssInJs
   });
 };

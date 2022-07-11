@@ -157,6 +157,16 @@
 					"type": "boolean",
 					"default": true,
 					"description": "display svelte 3.0 component item"
+				},
+				"web-template.parameters.styleName": {
+					"type": "string",
+					"default": "",
+					"description": "css file name. default is the first lowercase string of the component name"
+				},
+				"web-template.parameters.displayReactPropType": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to use PropType declaration from react components"
 				}
 			}
 		}

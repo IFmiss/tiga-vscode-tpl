@@ -1,6 +1,6 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
 import * as vscode from 'vscode';
-import { styleName } from "../../utils/style";
+import { styleClassName } from "../../utils/style";
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
@@ -8,7 +8,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     useTypeScript
   } = options;
 
-  const className = styleName(name);
+  const className = styleClassName(name);
   const upStartName = strUpStart(name);
   const { parameters: { miniProgramNpmOrgImport: orgName = "@hello" } } = vscode.workspace.getConfiguration('web-template');
 

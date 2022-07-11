@@ -1,5 +1,4 @@
-import rfc from './../exec/rfc';
-import rcc from './../exec/rcc';
+import react from './../exec/react';
 import vue2 from './../exec/vue2';
 import vue3 from './../exec/vue3';
 import svelte3 from './../exec/svelte3';
@@ -14,18 +13,20 @@ import moduleConfigReactMiniProgram from '../utils/moduleConfigReactMiniProgram'
 export const OK_TEXT = '👌 OK';
 export const NO_TEXT = '👋 NO';
 
+export const CSS_IN_JS = ['styled-components'];
+
 /**
  * 创建React模块的模版集合
  */
 export const EXTENSION_MODULE_MAP = [{
   type: 'rfc',
   command: 'web-template.createReactFC',
-  render: rfc,
+  render: react,
   options: {}
 }, {
   type: 'rcc',
   command: 'web-template.createReactCC',
-  render: rcc,
+  render: react,
   options: {}
 }];
 
