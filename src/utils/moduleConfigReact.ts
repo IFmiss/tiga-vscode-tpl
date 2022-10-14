@@ -25,7 +25,7 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
     placeHolder: 'select style type'
   };
   const style = await vscode.window.showQuickPick([
-    'styled-components',
+    'css-in-js',
     'scss',
     'less',
     'css'
@@ -33,7 +33,9 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
 
 
   let useCssModules;
-  const cssInJs = CSS_IN_JS.includes(style);
+  let cssInJsType;
+
+  const cssInJs = style === 'css-in-js';
 
   if (!cssInJs) {
     const selectCssModulesOpt: vscode.QuickPickOptions = {
@@ -43,6 +45,11 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
       OK_TEXT,
       NO_TEXT
     ], selectCssModulesOpt);
+  } else {
+    const selectCssInJsOpt: vscode.QuickPickOptions = {
+      placeHolder: 'which one',
+    };
+    cssInJsType = await vscode.window.showQuickPick(CSS_IN_JS, selectCssInJsOpt);
   }
 
   await mkdir(`${fPath}/${name}`);
@@ -54,6 +61,7 @@ export default async function moduleConfigReact(parmas: any, options: Pick<Rende
     useTypeScript: useTypeScript === OK_TEXT,
     style: style as TplStyleType,
     useCssModules: useCssModules === OK_TEXT,
-    cssInJs
+    cssInJs,
+    cssInJsType: cssInJsType as CssInJsType,
   });
 };

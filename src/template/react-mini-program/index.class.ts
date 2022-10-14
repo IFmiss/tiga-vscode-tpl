@@ -1,13 +1,15 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleClassName } from "../../utils/style";
+import { styleClassName, styleFileName as sFileName } from "../../utils/style";
 
 export default function compileIndex(options: RenderTemplateOptions): string {
   const {
     name,
-    useTypeScript
+    useTypeScript,
+    useCssModules
   } = options;
 
   const className = styleClassName(name);
+  const styleFileName = sFileName(name);
   const upStartName = strUpStart(name);
 
   const tpl = `
@@ -15,7 +17,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
     import { View } from '@hello/mp-components'
 
-    import './index.scss'
+    ${useCssModules ? `import styles from './${styleFileName}.scss';` : `import './${styleFileName}.scss';`}
 
     ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
     ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm-row--`}
@@ -37,7 +39,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
       render () {
         return (
-          <View className='${className}'>this is ${upStartName}</View>
+          <View className=${useCssModules ? `{styles.${className}}` : `'${className}'`}>this is ${upStartName}</View>
         )
       }
     };

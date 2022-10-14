@@ -2,7 +2,9 @@ import { tpl as tplExp } from '@tiga-cli/tpl-core';
 import { styleClassName, styleComponentsName } from "../../utils/style";
 
 export default function compileStyle(options: RenderTemplateOptions): string {
-  const { name, cssInJs } = options;
+  const { name, cssInJs, cssInJsType } = options;
+
+  const cssInJsPackageName = cssInJsType ?? 'styled-components';
 
   const css = `
     .${styleClassName(name)} {
@@ -11,7 +13,7 @@ export default function compileStyle(options: RenderTemplateOptions): string {
   `;
 
   const styledCss = `
-    import styled from 'styled-components'
+    import styled from '${cssInJsPackageName}'
 
     export const Styled${styleComponentsName(name)} = styled.div\`
       position: 'relative';

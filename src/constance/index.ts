@@ -13,7 +13,10 @@ import moduleConfigReactMiniProgram from '../utils/moduleConfigReactMiniProgram'
 export const OK_TEXT = '👌 OK';
 export const NO_TEXT = '👋 NO';
 
-export const CSS_IN_JS = ['styled-components'];
+export const CSS_IN_JS: CssInJsType[] = [
+  '@emotion/styled',
+  'styled-components'
+];
 
 /**
  * 创建React模块的模版集合

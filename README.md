@@ -4,6 +4,10 @@
 
 ### Change log
 
+- v0.3.1
+  - add `@emotion/styled` options in css-in-js tools (only in react rcc/rfc)
+  - support css modules in react-mini-program
+
 - v0.3.0
 
   - React PropTypes Support Definition Optional. see `web-template.parameters.displayReactPropType`

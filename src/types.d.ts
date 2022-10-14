@@ -10,7 +10,9 @@ type TplStyleType =
   | 'less'
   | 'css'
   | 'scss'
-  | 'styled-components';
+  | 'css-in-js';
+
+type CssInJsType = 'styled-components' | '@emotion/styled';
 
 interface RenderTemplateOptions {
   // 项目名称
@@ -33,6 +35,8 @@ interface RenderTemplateOptions {
 
   // 是否是css in js  styled-components
   cssInJs?: boolean;
+
+  cssInJsType?: CssInJsType
 }
 
 type ImportStyleType =

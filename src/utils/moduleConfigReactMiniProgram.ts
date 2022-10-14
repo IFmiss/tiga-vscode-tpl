@@ -21,12 +21,22 @@ export default async function moduleConfigReactMiniProgram(parmas: any, options:
     NO_TEXT
   ], selectTsOpt);
 
+  let useCssModules;
+  const selectCssModulesOpt: vscode.QuickPickOptions = {
+    placeHolder: 'use CSS Modules?',
+  };
+  useCssModules = await vscode.window.showQuickPick([
+    OK_TEXT,
+    NO_TEXT
+  ], selectCssModulesOpt);
+
   await mkdir(`${fPath}/${name}`);
 
   return Promise.resolve<RenderTemplateOptions>({
     ...options,
     path: fPath,
     name: name,
-    useTypeScript: useTypeScript === OK_TEXT
+    useTypeScript: useTypeScript === OK_TEXT,
+    useCssModules: useCssModules === OK_TEXT
   });
 };
