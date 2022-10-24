@@ -3,6 +3,8 @@
 > now you can create template like vue, react, react for mini-program, svelte
 
 ### Change log
+- v0.3.1
+  - fix: change mini program import style name
 
 - v0.3.1
   - add `@emotion/styled` options in css-in-js tools (only in react rcc/rfc)

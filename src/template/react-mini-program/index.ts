@@ -20,7 +20,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     import { View } from '${orgName}/mp-components'
     import { useDidHide, useDidShow, useReady } from '${orgName}/mp-service'
 
-    ${useCssModules ? `import styles from './${styleFileName}.scss';` : `import './${styleFileName}.scss';`}
+    ${useCssModules ? `import styles from './index.scss';` : `import './index.scss';`}
 
     ${useTypeScript ? `export interface ${upStartName}Props {}\n` : `--rm-row--`}
     const ${upStartName}${useTypeScript ? `: React.FC<${upStartName}Props>` : ''} = () => {

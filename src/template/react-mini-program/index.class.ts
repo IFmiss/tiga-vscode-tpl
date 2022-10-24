@@ -17,7 +17,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
     import { View } from '@hello/mp-components'
 
-    ${useCssModules ? `import styles from './${styleFileName}.scss';` : `import './${styleFileName}.scss';`}
+    ${useCssModules ? `import styles from './index.scss';` : `import './index.scss';`}
 
     ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
     ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm-row--`}
