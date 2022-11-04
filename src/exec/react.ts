@@ -1,11 +1,13 @@
-import { renderContextFile } from "@tiga-cli/tpl-core";
+import { renderContextFile, strUpStart } from "@tiga-cli/tpl-core";
 import compileRccIndex from '../template/react/index.rcc';
 import compileRccStyledIndex from '../template/react/index.rcc.styled';
 import compileFccIndex from '../template/react/index';
 import compileFccStyledIndex from '../template/react/index.styled';
 import compileStyle from '../template/react/style';
 import * as fsExtra from 'fs-extra';
-import { styleFileName } from "../utils/style";
+import { cssInJsFileName, styleFileName } from "../utils/style";
+import compileRccFileIndex from "../template/react/index.rcc.file";
+import compileFileIndex from "../template/react/index.file";
 
 export default function render(options: RenderTemplateOptions) {
   const {
@@ -14,7 +16,8 @@ export default function render(options: RenderTemplateOptions) {
     useTypeScript: ts,
     style,
     type,
-    cssInJs
+    cssInJs,
+    onlyFile
   } = options;
 
   const reactExt = ts ? 'tsx' : 'jsx';
@@ -26,7 +29,7 @@ export default function render(options: RenderTemplateOptions) {
     if (cssInJs) {
       TPL_MAP = {
         [`${name}/index.${reactExt}`]: renderContextFile(compileRccStyledIndex, options),
-        [`${name}/${styleFileName(name)}.${scriptExt}`]: renderContextFile(compileStyle, options),
+        [`${name}/${cssInJsFileName(name)}.${scriptExt}`]: renderContextFile(compileStyle, options),
       };
     } else {
       TPL_MAP = {
@@ -38,7 +41,7 @@ export default function render(options: RenderTemplateOptions) {
     if (cssInJs) {
       TPL_MAP = {
         [`${name}/index.${reactExt}`]: renderContextFile(compileFccStyledIndex, options),
-        [`${name}/${styleFileName(name)}.${scriptExt}`]: renderContextFile(compileStyle, options),
+        [`${name}/${cssInJsFileName(name)}.${scriptExt}`]: renderContextFile(compileStyle, options),
       };
     } else {
       TPL_MAP = {
@@ -46,6 +49,16 @@ export default function render(options: RenderTemplateOptions) {
         [`${name}/${styleFileName(name)}.${styleExt}`]: renderContextFile(compileStyle, options),
       };
     }
+  }
+
+  if (onlyFile) {
+    // just create tsx/jsx file
+    TPL_MAP = {
+      [`${strUpStart(name)}`]: renderContextFile(type === 'rcc' ? compileRccFileIndex : compileFileIndex, {
+        ...options,
+        name: name.split('.')[0]
+      }),
+    };
   }
 
   for (let [k, v] of Object.entries(TPL_MAP)) {

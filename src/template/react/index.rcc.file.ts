@@ -1,21 +1,17 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleComponentsName, cssInJsFileName } from '../../utils/style';
 import * as vscode from 'vscode';
 
-export default function compileRccStyledIndex(options: RenderTemplateOptions): string {
+export default function compileRccFileIndex(options: RenderTemplateOptions): string {
   const {
     name,
     useTypeScript
   } = options;
 
-  const styleFileName = cssInJsFileName(name);
   const upStartName = strUpStart(name);
-  const styledComponentsName = styleComponentsName(name);
   const { parameters: { displayReactPropType } } = vscode.workspace.getConfiguration('web-template');
 
   const tpl = `
     import React from 'react';
-    import { Styled${styledComponentsName} } from './${styleFileName}';
     ${displayReactPropType ? `// import PropTypes from 'prop-types';` : '--rm-row--'}
 
     ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
@@ -32,7 +28,7 @@ export default function compileRccStyledIndex(options: RenderTemplateOptions): s
 
       render () {
         return (
-          <Styled${styledComponentsName}>this is ${upStartName}</Styled${styledComponentsName}>
+          <div>this is ${upStartName}</div>
         )
       }
     };

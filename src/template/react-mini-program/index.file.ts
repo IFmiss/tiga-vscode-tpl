@@ -1,8 +1,8 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
 import * as vscode from 'vscode';
-import { styleClassName } from "../../utils/style";
+import { styleClassName, styleFileName as sFileName } from "../../utils/style";
 
-export default function compileIndex(options: RenderTemplateOptions): string {
+export default function compileFileIndex(options: RenderTemplateOptions): string {
   const {
     name,
     useTypeScript,
@@ -30,7 +30,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
       useReady(() => {})
 
       return (
-        <View className=${useCssModules ? `{styles.${className}}` : `'${className}'`}>this is ${upStartName}</View>
+        <View>this is ${upStartName}</View>
       );
     };
 

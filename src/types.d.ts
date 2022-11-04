@@ -10,7 +10,8 @@ type TplStyleType =
   | 'less'
   | 'css'
   | 'scss'
-  | 'css-in-js';
+  | 'css-in-js'
+  | 'none';
 
 type CssInJsType = 'styled-components' | '@emotion/styled';
 
@@ -37,6 +38,8 @@ interface RenderTemplateOptions {
   cssInJs?: boolean;
 
   cssInJsType?: CssInJsType
+
+  onlyFile?: boolean
 }
 
 type ImportStyleType =

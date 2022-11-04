@@ -7,6 +7,11 @@ export const styleFileName = (name: string): string => {
   return styleName || toLowerCaseFirst(name);
 };
 
+export const cssInJsFileName = (name: string): string => {
+  const { parameters: { cssInJsFileName = "" } } = vscode.workspace.getConfiguration('web-template');
+  return cssInJsFileName || toLowerCaseFirst(name);
+};
+
 export const styleClassName = (name: string): string => {
   return toLowerCaseFirst(name);
 };

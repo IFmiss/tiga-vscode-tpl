@@ -1,15 +1,12 @@
 import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleClassName, styleFileName as sFileName } from "../../utils/style";
 import * as vscode from 'vscode';
 
-export default function compileIndex(options: RenderTemplateOptions): string {
+export default function compileRccFileIndex(options: RenderTemplateOptions): string {
   const {
     name,
     useTypeScript,
-    useCssModules
   } = options;
 
-  const className = styleClassName(name);
   const upStartName = strUpStart(name);
   const { parameters: { miniProgramNpmOrgImport: orgName = "@hello" } } = vscode.workspace.getConfiguration('web-template');
 
@@ -17,8 +14,6 @@ export default function compileIndex(options: RenderTemplateOptions): string {
     import React, { Component } from 'react'
 
     import { View } from '${orgName}/mp-components'
-
-    ${useCssModules ? `import styles from './index.scss';` : `import './index.scss';`}
 
     ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
     ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm-row--`}
@@ -40,7 +35,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
       render () {
         return (
-          <View className=${useCssModules ? `{styles.${className}}` : `'${className}'`}>this is ${upStartName}</View>
+          <View>this is ${upStartName}</View>
         )
       }
     };

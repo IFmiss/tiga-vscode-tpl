@@ -2,7 +2,7 @@ import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
 import { styleClassName, styleFileName as sFileName } from '../../utils/style';
 import * as vscode from 'vscode';
 
-export default function compileIndex(options: RenderTemplateOptions): string {
+export default function compileFccIndex(options: RenderTemplateOptions): string {
   const {
     name,
     style: styleExt,

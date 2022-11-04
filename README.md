@@ -3,7 +3,12 @@
 > now you can create template like vue, react, react for mini-program, svelte
 
 ### Change log
-- v0.3.1
+- v0.4.0
+  - add: `web-template.parameters.cssInJsFileName` to control the styled file name
+  - feature: support to create single file. like `hello.tsx`, `hello.jsx`, `hello.vue`, `hello.svelte`
+  - fixed: created an wrong component when press `Esc`
+
+- v0.3.2
   - fix: change mini program import style name
 
 - v0.3.1

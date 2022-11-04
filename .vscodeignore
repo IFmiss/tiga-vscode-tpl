@@ -1,3 +1,7 @@
 .gitignore
 LICENSE
 CHANGELOG.md
+
+**/*.ts
+**/tsconfig.json
+!file.ts
