@@ -1,5 +1,5 @@
-import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleComponentsName, cssInJsFileName } from '../../utils/style';
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
+import { componentName, cssInJsFileName } from '../../utils/name';
 import * as vscode from 'vscode';
 
 export default function compileFccStyledIndex(options: RenderTemplateOptions): string {
@@ -9,8 +9,8 @@ export default function compileFccStyledIndex(options: RenderTemplateOptions): s
   } = options;
 
   const styleFileName = cssInJsFileName(name);
-  const upStartName = strUpStart(name);
-  const styledComponentsName = styleComponentsName(name);
+  const upStartName = componentName(name);
+  const styledComponentsName = componentName(name);
   const { parameters: { displayReactPropType } } = vscode.workspace.getConfiguration('web-template');
 
   const tpl = `

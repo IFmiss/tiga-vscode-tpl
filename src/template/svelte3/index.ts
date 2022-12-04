@@ -1,5 +1,5 @@
-import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleClassName } from '../../utils/style';
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
+import { componentName, styleClassName } from '../../utils/name';
 
 export default function compileIndex(options: RenderSvelteTemplateOptions) {
   const {
@@ -7,7 +7,7 @@ export default function compileIndex(options: RenderSvelteTemplateOptions) {
   } = options;
 
   const className = styleClassName(name);
-  const upStartName = strUpStart(name);
+  const upStartName = componentName(name);
 
   const tpl = `
     <script>

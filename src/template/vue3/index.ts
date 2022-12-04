@@ -1,5 +1,5 @@
 import { tpl as tplExp } from '@tiga-cli/tpl-core';
-import { styleClassName } from '../../utils/style';
+import { styleClassName } from '../../utils/name';
 
 export default function compileIndex(options: RenderVueTemplateOptions): string {
   const {
@@ -30,7 +30,7 @@ export default function compileIndex(options: RenderVueTemplateOptions): string 
   const tpl = `
     <template>
       <div ${getDivTag()}>
-        {{ ${className} }}
+        this is  {{ name }}
       </div>
     </template>
 

@@ -31,7 +31,7 @@ export default function render(options: RenderTemplateOptions & {
   if (onlyFile) {
     // just create tsx/jsx file
     TPL_MAP = {
-      [`${strUpStart(name)}`]: renderContextFile(classComponent ? compileRccFileIndex : compileFileIndex, {
+      [name]: renderContextFile(classComponent ? compileRccFileIndex : compileFileIndex, {
         ...options,
         name: name.split('.')[0]
       }),

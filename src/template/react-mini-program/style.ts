@@ -1,5 +1,5 @@
 import { tpl as tplExp } from '@tiga-cli/tpl-core';
-import { styleClassName } from "../../utils/style";
+import { styleClassName } from "../../utils/name";
 
 export default function compileStyle(options: RenderTemplateOptions): string {
   const { name } = options;

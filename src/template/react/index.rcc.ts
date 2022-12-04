@@ -1,5 +1,5 @@
-import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
-import { styleClassName, styleFileName as sFileName } from '../../utils/style';
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
+import { componentName, styleClassName, styleFileName as sFileName } from '../../utils/name';
 import * as vscode from 'vscode';
 
 export default function compileIndex(options: RenderTemplateOptions): string {
@@ -12,7 +12,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
 
   const styleFileName = sFileName(name);
   const className = styleClassName(name);
-  const upStartName = strUpStart(name);
+  const upStartName = componentName(name);
   const { parameters: { displayReactPropType } } = vscode.workspace.getConfiguration('web-template');
 
   const tpl = `

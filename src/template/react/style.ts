@@ -1,5 +1,5 @@
 import { tpl as tplExp } from '@tiga-cli/tpl-core';
-import { styleClassName, styleComponentsName } from "../../utils/style";
+import { styleClassName, componentName } from "../../utils/name";
 
 export default function compileStyle(options: RenderTemplateOptions): string {
   const { name, cssInJs, cssInJsType } = options;
@@ -15,7 +15,7 @@ export default function compileStyle(options: RenderTemplateOptions): string {
   const styledCss = `
     import styled from '${cssInJsPackageName}'
 
-    export const Styled${styleComponentsName(name)} = styled.div\`
+    export const Styled${componentName(name)} = styled.div\`
       position: 'relative';
     \`;
   `;

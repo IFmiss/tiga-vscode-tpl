@@ -5,7 +5,7 @@ import compileFccIndex from '../template/react/index';
 import compileFccStyledIndex from '../template/react/index.styled';
 import compileStyle from '../template/react/style';
 import * as fsExtra from 'fs-extra';
-import { cssInJsFileName, styleFileName } from "../utils/style";
+import { cssInJsFileName, styleFileName } from "../utils/name";
 import compileRccFileIndex from "../template/react/index.rcc.file";
 import compileFileIndex from "../template/react/index.file";
 
@@ -54,7 +54,7 @@ export default function render(options: RenderTemplateOptions) {
   if (onlyFile) {
     // just create tsx/jsx file
     TPL_MAP = {
-      [`${strUpStart(name)}`]: renderContextFile(type === 'rcc' ? compileRccFileIndex : compileFileIndex, {
+      [name]: renderContextFile(type === 'rcc' ? compileRccFileIndex : compileFileIndex, {
         ...options,
         name: name.split('.')[0]
       }),

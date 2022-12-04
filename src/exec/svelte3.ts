@@ -18,7 +18,7 @@ export default function render(options: RenderTemplateOptions) {
   if (onlyFile) {
     // just create svelte file
     TPL_MAP = {
-      [`${strUpStart(name)}`]: renderContextFile(compileIndex, {
+      [name]: renderContextFile(compileIndex, {
         ...options,
         name: name.split('.')[0]
       }),

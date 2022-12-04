@@ -1,5 +1,6 @@
-import { tpl as tplExp, strUpStart } from '@tiga-cli/tpl-core';
+import { tpl as tplExp } from '@tiga-cli/tpl-core';
 import * as vscode from 'vscode';
+import { componentName } from '../../utils/name';
 
 export default function compileFileIndex(options: RenderTemplateOptions): string {
   const {
@@ -7,7 +8,7 @@ export default function compileFileIndex(options: RenderTemplateOptions): string
     useTypeScript
   } = options;
 
-  const upStartName = strUpStart(name);
+  const upStartName = componentName(name);
   const { parameters: { displayReactPropType } } = vscode.workspace.getConfiguration('web-template');
 
   const tpl = `
