@@ -16,8 +16,8 @@ export default function compileIndex(options: RenderTemplateOptions): string {
   const tpl = `
     import React, { memo } from 'react';
 
-    import { View } from '${orgName}/mp-components'
-    import { useDidHide, useDidShow, useReady } from '${orgName}/mp-service'
+    import { View } from '${orgName}/bmp-components'
+    import { useDidHide, useDidShow, useReady } from '${orgName}/bmp-react'
 
     ${useCssModules ? `import styles from './index.scss';` : `import './index.scss';`}
 

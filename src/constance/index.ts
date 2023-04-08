@@ -14,8 +14,8 @@ export const OK_TEXT = '👌 OK';
 export const NO_TEXT = '👋 NO';
 
 export const CSS_IN_JS: CssInJsType[] = [
-  '@emotion/styled',
-  'styled-components'
+  'styled-components',
+  '@emotion/styled'
 ];
 
 /**

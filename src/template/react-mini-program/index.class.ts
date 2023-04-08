@@ -16,7 +16,7 @@ export default function compileIndex(options: RenderTemplateOptions): string {
   const tpl = `
     import React, { Component } from 'react'
 
-    import { View } from '${orgName}/mp-components'
+    import { View } from '${orgName}/bmp-components'
 
     ${useCssModules ? `import styles from './index.scss';` : `import './index.scss';`}
 

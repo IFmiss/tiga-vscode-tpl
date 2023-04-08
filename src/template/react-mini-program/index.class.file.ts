@@ -14,7 +14,7 @@ export default function compileRccFileIndex(options: RenderTemplateOptions): str
   const tpl = `
     import React, { Component } from 'react'
 
-    import { View } from '${orgName}/mp-components'
+    import { View } from '${orgName}/bmp-components'
 
     ${useTypeScript ? `interface ${upStartName}Props {}` : `--rm-row--`}
     ${useTypeScript ? `interface ${upStartName}State {}\n` : `--rm-row--`}

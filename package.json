@@ -15,9 +15,22 @@
 		"svelte",
 		"mini program"
 	],
-	"version": "0.4.1",
+	"version": "0.4.3",
 	"engines": {
 		"vscode": "^1.51.0"
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run esbuild-base -- --minify",
+		"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+		"esbuild": "npm run esbuild-base -- --sourcemap",
+		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+		"test-compile": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"release": "vsce package && vsce publish"
 	},
 	"repository": {
 		"type": "git",
@@ -180,19 +193,6 @@
 				}
 			}
 		}
-	},
-	"scripts": {
-		"vscode:prepublish": "yarn run esbuild-base -- --minify",
-		"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
-		"esbuild": "npm run esbuild-base -- --sourcemap",
-		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-		"test-compile": "tsc -p ./",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js",
-		"release": "vsce package && vsce publish"
 	},
 	"devDependencies": {
 		"@types/fs-extra": "^9.0.4",
