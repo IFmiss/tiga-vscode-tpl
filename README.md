@@ -4,6 +4,12 @@
 
 ### Change log
 
+- v0.4.4
+  - fix: react template styled components css code.
+
+- v0.4.3
+  - mini-program template upgrade
+
 - v0.4.2
 
   - changed template import package name in mini-program

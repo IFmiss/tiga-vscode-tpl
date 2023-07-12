@@ -16,7 +16,7 @@ export default function compileStyle(options: RenderTemplateOptions): string {
     import styled from '${cssInJsPackageName}'
 
     export const Styled${componentName(name)} = styled.div\`
-      position: 'relative';
+      position: relative;
     \`;
   `;
 
