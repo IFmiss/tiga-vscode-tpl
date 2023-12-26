@@ -4,10 +4,16 @@
 
 ### Change log
 
+- v0.4.6
+
+  - feat: Supported `@mui/material/styled` in react Function/Class Component.
+
 - v0.4.4
-  - fix: react template styled components css code.
+
+  - fix: React template styled components css code.
 
 - v0.4.3
+
   - mini-program template upgrade
 
 - v0.4.2

@@ -13,7 +13,7 @@ type TplStyleType =
   | 'css-in-js'
   | 'none';
 
-type CssInJsType = 'styled-components' | '@emotion/styled';
+type CssInJsType = 'styled-components' | '@emotion/styled' | '@mui/material';
 
 interface RenderTemplateOptions {
   // 项目名称
