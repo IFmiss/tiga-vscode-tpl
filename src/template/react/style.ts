@@ -14,7 +14,7 @@ export default function compileStyle(options: RenderTemplateOptions): string {
   `;
 
   const styledCss = `
-    import styled from '${cssInJsPackageName}'
+    ${isMui ? `import { styled } from '${cssInJsPackageName}'` : `import styled from '${cssInJsPackageName}'`}
     ${isMui ? `import { Box } from '@mui/system';` : '--rm-row--'}
     ${isMui ? `import type { Theme } from '@mui/material/styles';` : '--rm-row--'}
 

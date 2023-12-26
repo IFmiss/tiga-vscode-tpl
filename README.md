@@ -4,6 +4,10 @@
 
 ### Change log
 
+- v0.4.7
+
+  - fixed: bug in 0.4.6.
+
 - v0.4.6
 
   - feat: Supported `@mui/material/styled` in react Function/Class Component.
